@@ -212,7 +212,7 @@ For the pair task, run $`N_{\mathrm{cal}}`$ independent fresh BB84 challenges th
 
 ```math
 p\le\widehat p+
-\sqrt{\frac{\ln(1/\beta)}{2N_{\mathrm{cal}}}}
+\left(\frac{\ln(1/\beta)}{2N_{\mathrm{cal}}}\right)^{1/2}
 \quad\text{with probability at least }1-\beta.
 ```
 

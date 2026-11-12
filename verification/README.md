@@ -36,7 +36,7 @@ The script does not implement an asymptotically optimal common-kernel encoder, r
 
 ## Hosted mathematical presentation
 
-The [read-only workflow](../.github/workflows/hosted-math.yml) checks the exact proposed commit on GitHub at widths of 1,440 and 760 pixels. It first probes the README's inline, display and table notation, then inventories all tracked Markdown and compares every mathematical expression with the actual hosted MathML. The comparison retains operands, relations, subscripts, fractions and meaningful token structure. HTML, screenshots, source inventories and reports are saved together for subsequent visual inspection.
+The [read-only workflow](../.github/workflows/hosted-math.yml) checks the exact proposed commit on GitHub at widths of 1,440 and 760 pixels. It first probes the README's inline, display and table notation, then inventories all tracked Markdown and compares every mathematical expression with the actual hosted MathML. The comparison retains operands, relations, subscripts, fractions and meaningful token structure. HTML, screenshots, source inventories and reports are saved together for subsequent visual inspection. A separate viewport collector records unmodified native page details below GitHub's floating toolbar, including the principal capacity formula and the calibration confidence bound. These supplementary screenshots support visual review; they do not replace the full structural comparison.
 
 The collector and checker in [hosted_math/](hosted_math/) use Node.js 22, Playwright 1.56.1, MathJax 3.2.1, Python 3.10 or later, and Git. Dependencies are installed outside the source tree. To repeat a complete capture from a compatible environment, set `NODE_PATH` to those installed Node modules and run:
 

@@ -52,6 +52,15 @@ jobs:
             --repository "$GITHUB_REPOSITORY" \
             --revision "$CAPTURE_REVISION" \
             --output "$RUNNER_TEMP/hosted-evidence/full"
+      - name: Capture unobscured native viewport details
+        run: |
+          export NODE_PATH="$RUNNER_TEMP/math-runtime/node_modules"
+          node verification/hosted_math/capture_visual_supplements.cjs \
+            --root "$GITHUB_WORKSPACE" \
+            --repository "$GITHUB_REPOSITORY" \
+            --revision "$CAPTURE_REVISION" \
+            --inventory "$RUNNER_TEMP/hosted-evidence/full/math-source.json" \
+            --output "$RUNNER_TEMP/hosted-evidence/visual-supplements"
       - name: Retain captures and reports
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
