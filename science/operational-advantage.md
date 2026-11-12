@@ -10,17 +10,19 @@ This is an operational witness for the memory model, not a new BB84 uncertainty 
 
 A verifier draws independent uniform strings $`X,\Theta\in\{0,1\}^m`$ and supplies
 
+**(O1)**
+
 ```math
 |\psi_{X,\Theta}\rangle
 =\bigotimes_{i=1}^{m}H^{\Theta_i}|X_i\rangle.
-\tag{O1}
 ```
 
 The basis string is withheld until the end of a prescribed hold interval. The memory then receives $`\Theta`$ and must return a bit string $`Y`$. It passes when
 
+**(O2)**
+
 ```math
 d_H(X,Y)\le\lfloor\alpha m\rfloor.
-\tag{O2}
 ```
 
 The quantum protocol uses $`2m`$ physical emitters, including one initialized auxiliary emitter per challenge. No original challenge qubit or other quantum system remains available outside these emitters during storage. The verifier's private classical labels are not accessible to the memory. All preparation occurs before the hold, and all decoding and measurements occur after it. No run is removed because of a loss, an unfavorable flag, or a bad answer.
@@ -33,14 +35,17 @@ The task is useful when the later choice of measurement basis must remain availa
 
 Write
 
+**(O3)**
+
 ```math
 |v\rangle=|00\rangle,\qquad
 |D_0\rangle=\frac{|10\rangle-|01\rangle}{\sqrt2},\qquad
 |S_0\rangle=\frac{|10\rangle+|01\rangle}{\sqrt2}.
-\tag{O3}
 ```
 
 The encoder $`V_0`$ sends $`|0\rangle`$ to $`|v\rangle`$ and $`|1\rangle`$ to $`|D_0\rangle`$. Use the fixed two-qubit unitary
+
+**(O4)**
 
 ```math
 \begin{aligned}
@@ -49,7 +54,6 @@ U_0|10\rangle&=|D_0\rangle,\\
 U_0|01\rangle&=|S_0\rangle,&
 U_0|11\rangle&=|11\rangle.
 \end{aligned}
-\tag{O4}
 ```
 
 Thus the encoder applies $`U_0`$ to the input and an auxiliary $`|0\rangle`$. The decoder applies $`U_0^\dagger`$ and discards the second emitter. Its action is a completely positive trace-preserving map on the full four-dimensional space: the vacuum and $`S_0`$ yield logical zero, while $`D_0`$ and $`|11\rangle`$ yield logical one, with coherences determined by the stated unitary and partial trace. The model never populates $`|11\rangle`$, but its completion is specified.
@@ -62,39 +66,45 @@ These gates assume protected or controllable preparation and retrieval windows, 
 
 During the hold, let the actual static collective jump be
 
+**(O5)**
+
 ```math
 L=g_1\sigma_1^-+g_2\sigma_2^-,\qquad
 \Gamma=|g_1|^2+|g_2|^2>0.
-\tag{O5}
 ```
 
 Both emitters also have the same independent-loss rate $`\kappa`$, with $`\eta=e^{-\kappa t}`$. In the single-excitation sector let $`P_B`$ be the rank-one bright projector of $`L^\dagger L`$ and $`P_D=I-P_B`$. Define the calibration leakage
 
+**(O6)**
+
 ```math
 b=\langle D_0|P_B|D_0\rangle
 =\frac{|g_1-g_2|^2}{2\Gamma}.
-\tag{O6}
 ```
 
 Allow an unknown static bright-state Hamiltonian $`H_B=\omega_B P_B`$. The vacuum and actual dark state have the same known energy in the chosen rotating frame. A separate uncontrolled vacuum-to-dark phase is discussed below.
 
 The no-jump operator in this sector is
 
+**(O7)**
+
 ```math
 F=\sqrt\eta\,(P_D+zP_B),\qquad
 z=e^{-\Gamma t/2-i\omega_Bt},\qquad |z|\le1.
-\tag{O7}
 ```
 
 Every collective or local lowering jump from this sector ends in the vacuum. Consequently, after the fixed decoder, the channel on the logical qubit has survival amplitude
 
+**(O8)**
+
 ```math
 A=\langle D_0|F|D_0\rangle
 =\sqrt\eta\,(1-b+bz).
-\tag{O8}
 ```
 
 Explicitly,
+
+**(O9)**
 
 ```math
 \begin{pmatrix}\rho_{00}&\rho_{01}\\\rho_{10}&\rho_{11}\end{pmatrix}
@@ -103,28 +113,29 @@ Explicitly,
 \rho_{00}+(1-|A|^2)\rho_{11}&A^*\rho_{01}\\
 A\rho_{10}&|A|^2\rho_{11}
 \end{pmatrix}.
-\tag{O9}
 ```
 
 To check (O9), resolve $`F|D_0\rangle`$ into the nominal $`D_0,S_0`$ basis. The former component becomes a logical excitation with auxiliary zero; the latter becomes logical zero with auxiliary one. Tracing that auxiliary removes their cross term. Jump branches also contribute logical zero. Vacuum-to-$`D_0`$ coherence has exactly the amplitude (O8).
 
 When $`\omega_B=0`$, $`A`$ is real and
 
+**(O10)**
+
 ```math
 |A|^2=\eta\left[1-b(1-e^{-\Gamma t/2})\right]^2
 \ge\eta(1-b)^2.
-\tag{O10}
 ```
 
 With an arbitrary bright phase and $`b\le1/2`$, a uniform bound is
 
+**(O11)**
+
 ```math
-\operatorname{Re}A\ge\sqrt\eta(1-2b),\qquad
+\mathrm{Re}A\ge\sqrt\eta(1-2b),\qquad
 |A|^2\ge\eta(1-2b)^2.
-\tag{O11}
 ```
 
-The bound follows from $`\operatorname{Re}z\ge-1`$ and
+The bound follows from $`\mathrm{Re}z\ge-1`$ and
 $`|1-b+bz|\ge1-b-b|z|\ge1-2b`$.
 It is independent of the collective strength and of the bright phase accumulated during the hold.
 
@@ -132,9 +143,10 @@ It is independent of the collective strength and of the bright phase accumulated
 
 **Lemma 1.** Suppose $`g_0\ne0`$ and the two complex couplings obey
 
+**(O12)**
+
 ```math
 |g_j-g_0|\le\delta|g_0|,\qquad j=1,2,\qquad 0\le\delta<1.
-\tag{O12}
 ```
 
 Then $`b\le\delta^2`$, and the bound is attainable.
@@ -152,10 +164,11 @@ The left side is
 $`1-|g_1+g_2|^2/(2\Gamma)=|g_1-g_2|^2/(2\Gamma)=b`$.
 For equality, take
 
+**(O13)**
+
 ```math
 \frac{g_{1,2}}{g_0}
 =1-\delta^2\,\pm i\delta\sqrt{1-\delta^2}.
-\tag{O13}
 ```
 
 Each deviation has modulus $`\delta`$, and substitution gives $`b=\delta^2`$. $`\square`$
@@ -164,49 +177,54 @@ Thus this uncertainty model does not require the weaker replacement $`\delta^2/(
 
 ## 4. BB84 error and additional dephasing
 
-For the channel (O9), the average error on uniformly chosen computational-basis bits is $`(1-|A|^2)/2`$. The average error on uniformly chosen Hadamard-basis bits is $`(1-\operatorname{Re}A)/2`$. Their uniform average is
+For the channel (O9), the average error on uniformly chosen computational-basis bits is $`(1-|A|^2)/2`$. The average error on uniformly chosen Hadamard-basis bits is $`(1-\mathrm{Re}A)/2`$. Their uniform average is
+
+**(O14)**
 
 ```math
 p_{\mathrm{pair}}
-=\frac{2-|A|^2-\operatorname{Re}A}{4}.
-\tag{O14}
+=\frac{2-|A|^2-\mathrm{Re}A}{4}.
 ```
 
 For $`\delta^2\le1/2`$, (O11) and Lemma 1 imply
+
+**(O15)**
 
 ```math
 p_{\mathrm{pair}}
 \le p_0(\eta,\delta)
 :=\frac{2-\eta(1-2\delta^2)^2
 -\sqrt\eta(1-2\delta^2)}4.
-\tag{O15}
 ```
 
 Now add in-storage local dephasing
+
+**(O16)**
 
 ```math
 \mathcal R_\phi(s)
 =\nu_1(s)\mathcal D[Z_1]+\nu_2(s)\mathcal D[Z_2],
 \qquad \nu_j(s)\ge0.
-\tag{O16}
 ```
 
 Since $`\mathcal D[Z](\rho)=Z\rho Z-\rho`$ has diamond norm two, the propagator estimate in [Robustness](robustness.md) gives
 
+**(O17)**
+
 ```math
 \epsilon_\phi
 \le\min\!\left\{1,\sum_{j=1}^2\int_0^t\nu_j(s)\,ds\right\}.
-\tag{O17}
 ```
 
 This treats dephasing during the hold itself, including subsequent collective loss of any bright component it creates. It does not replace dephasing by a commuting terminal channel. The bound is uniform in $`\Gamma`$ and $`\omega_B`$.
 
 Let $`\epsilon_{\mathrm{other}}`$ bound any remaining hold-channel perturbation in half-diamond norm, and let $`\epsilon_{\mathrm{end}}`$ be the sum of certified preparation, decoding, and basis-readout errors relative to the stated boundary channels. Contractivity and the operational meaning of trace distance imply
 
+**(O18)**
+
 ```math
 p\le p_*:=p_0(\eta,\delta)
  +\epsilon_\phi+\epsilon_{\mathrm{other}}+\epsilon_{\mathrm{end}}.
-\tag{O18}
 ```
 
 The final classical output is included in this distance statement, so an additive channel budget bounds the error probability for the actual task directly. The comparison is useful whenever $`p_*`$ is below the classical threshold specified next.
@@ -215,21 +233,23 @@ The final classical output is included in this distance statement, so an additiv
 
 Define
 
+**(O19)**
+
 ```math
 \gamma_*:=\frac{1-1/\sqrt2}{2}
 =0.1464466094\ldots,
 \qquad
 D_2(a\|b)=a\log_2\frac ab
  +(1-a)\log_2\frac{1-a}{1-b}.
-\tag{O19}
 ```
 
 **Theorem 2 — Classical retained-record bound.** Every classical-memory strategy allowed in Section 1 satisfies, for $`0\le\alpha<\gamma_*`$,
 
+**(O20)**
+
 ```math
 \Pr_{\mathrm{classical}}[\mathrm{pass}]
 \le2^{-mD_2(\alpha\|\gamma_*)}.
-\tag{O20}
 ```
 
 **Reduction to the existing theorem.** Replace each prepared BB84 challenge by one half of an EPR pair and defer the verifier's basis measurement on the other half. The real BB84 bases are real matrices, so this produces exactly the challenge ensemble (O1), with the same joint distribution of retained data and labels. After the comparator's arbitrary joint initial instrument, only a classical record remains. Copy that record, including any independent random seed, to two separated players. Both receive $`\Theta`$ and execute the same classical decoding rule. Their answers are always identical and have exactly the comparator's error pattern.
@@ -240,10 +260,11 @@ The threshold and asymptotic exponent are sharp for this comparator: independent
 
 For independent quantum cells with bit-error probabilities $`p_i\le p_*<\alpha`$, the ordinary exponential-moment bound gives
 
+**(O21)**
+
 ```math
 \Pr_{\mathrm{quantum}}[\mathrm{pass}]
 \ge1-2^{-mD_2(\alpha\|p_*)}.
-\tag{O21}
 ```
 
 The $`p_i`$ need not be identical. The inequality follows from
@@ -251,9 +272,10 @@ $`\mathbb E e^{s\sum_i E_i}\le(1-p_*+p_*e^s)^m`$ for independent bit-error indic
 
 Together, (O20)–(O21) give an exponentially reliable quantum-versus-classical separation whenever
 
+**(O22)**
+
 ```math
 p_*<\alpha<\gamma_*.
-\tag{O22}
 ```
 
 ## 6. An endpoint-inclusive finite working point
@@ -272,30 +294,33 @@ Take the following dimensionless parameters.
 
 Equation (O15) gives
 
+**(O23)**
+
 ```math
 p_0=0.05148259198\ldots,
 \qquad
 p_*=0.08148259198\ldots<0.10<\gamma_*.
-\tag{O23}
 ```
 
 Writing the binary relative entropy in natural logarithms as $`D_e=(\ln2)D_2`$,
+
+**(O24)**
 
 ```math
 D_e(0.10\|p_*)=0.002148593958\ldots,
 \qquad
 D_e(0.10\|\gamma_*)=0.009538927833\ldots.
-\tag{O24}
 ```
 
 For $`m=2200`$ parallel independent pairs, hence $`4400`$ physical emitters, the conservative finite bounds are
+
+**(O25)**
 
 ```math
 \Pr_{\mathrm{quantum}}[\mathrm{pass}]\ge0.99114618,
 \qquad
 \Pr_{\mathrm{classical}}[\mathrm{pass}]
 \le7.69223\times10^{-10}.
-\tag{O25}
 ```
 
 The pair circuits use a number of boundary gates linear in $`m`$; storage uses no gates or measurements. These numbers are conditional on the stated physical and endpoint certificates. If those certificates are learned with finite confidence, the calibration failure probability must be included separately as described in [Robustness](robustness.md). The numerical margin does not constitute an experimental observation.
@@ -306,10 +331,11 @@ An unknown phase between the vacuum and the actual dark state is different from 
 
 For example, if $`|\phi|\le\phi_{\max}\le\pi`$, then
 
+**(O26)**
+
 ```math
-\operatorname{Re}(e^{-i\phi}A)
+\mathrm{Re}(e^{-i\phi}A)
 \ge\sqrt\eta\bigl[(1-b)\cos\phi_{\max}-b\bigr],
-\tag{O26}
 ```
 
 while the magnitude bound is unchanged. Substitution in (O14) gives the corresponding additional phase tolerance. The fixed-excitation erasure code in [Implementation](implementation.md) is insensitive to an unknown common excitation phase because it is global on every surviving codeword.

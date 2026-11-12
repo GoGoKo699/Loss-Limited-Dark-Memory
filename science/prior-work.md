@@ -26,7 +26,7 @@ This repository inherits that common-kernel model and injection. The new algebra
 
 ```math
 Z_{K_G}(z)
-=\operatorname{Tr}(P_{K_G}z^{\widehat N})
+=\mathrm{Tr}(P_{K_G}z^{\widehat N})
 \;\geq\;
 (1+z)^B(1-z)^r,
 \qquad 0<z<1.

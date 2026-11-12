@@ -2,6 +2,12 @@
 
 The [prior-work account](../science/prior-work.md) compares the actual noise models and results. The [structured bibliography](references.bib) records the main primary sources. Each scientific page also links the source needed for its imported theorem or construction.
 
+## Educational anchor
+
+Mark M. Wilde, *From Classical to Quantum Shannon Theory*, [arXiv:1106.1445v8](https://arxiv.org/abs/1106.1445v8), posted 14 July 2019, is the sole educational anchor. It is the author's draft associated with *Quantum Information Theory*, second edition (Cambridge University Press, 2017). The [source bridge](../learning/wilde-bridge.md) identifies the relevant sections and distinguishes textbook foundations from the project's local derivations and the research-level ingredients below.
+
+## Research ingredients
+
 | Ingredient | Primary source | Use in this project |
 |---|---|---|
 | Collective dark amplitude-damping codes | [Duan–Guo, 1998](https://arxiv.org/abs/quant-ph/9804014) | Established single-mode dark-space count and encoding mechanism |

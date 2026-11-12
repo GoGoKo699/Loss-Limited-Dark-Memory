@@ -46,6 +46,10 @@ Start with the [scientific map](science/README.md), then follow the [physical mo
 
 The [LLM reading guide](llms.txt) maps questions to authoritative pages.
 
+## Learn the project
+
+The [learning route](learning/README.md) uses Mark M. Wilde's *From Classical to Quantum Shannon Theory*, [arXiv:1106.1445v8](https://arxiv.org/abs/1106.1445v8), as its educational anchor. The [source bridge](learning/wilde-bridge.md) connects channel capacity and entropy to the collective-loss model, weighted dark-kernel proof and explicit storage examples. The [thirty-milestone map](learning/milestones.md) progresses from local physical and information-theoretic objects to the contribution's complete operational meaning.
+
 ## Reproduce the finite checks
 
 With Python 3.12 and the pinned numerical dependencies installed, run:

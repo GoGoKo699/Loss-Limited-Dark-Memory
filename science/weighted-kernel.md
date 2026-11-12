@@ -6,21 +6,23 @@ Counting dark vectors is sufficient for noiseless storage. With independent ampl
 
 All logarithms are base two. Let $`G\in\mathbb C^{r\times B}`$ have row rank $`r`$, and retain the operators $`L_a`$, common kernel $`\mathcal K_G`$, and excitation number $`\widehat N`$ from [the model](model.md). Write
 
+**(W1)**
+
 ```math
 \mathcal H_k=\ker(\widehat N-kI),\qquad
 d_k=\dim(\mathcal K_G\cap\mathcal H_k),\qquad
-Z_G(z)=\operatorname{Tr}(P_Gz^{\widehat N})
+Z_G(z)=\mathrm{Tr}(P_Gz^{\widehat N})
 =\sum_{k=0}^{B}d_kz^k.
-\tag{W1}
 ```
 
 ## 1. Weighted common-kernel theorem
 
 **Theorem 1.** For every $`0<z<1`$,
 
+**(W2)**
+
 ```math
 Z_G(z)\ge(1+z)^B(1-z)^r.
-\tag{W2}
 ```
 
 The statement is independent of coefficient magnitudes, phases, and spacing. It also holds when $`r`$ is merely the number of supplied profiles, but replacing that number by their actual rank gives the stronger bound. For $`r=0`$, equality holds.
@@ -29,16 +31,19 @@ The statement is independent of coefficient magnitudes, phases, and spacing. It 
 
 The lowering operators commute and have bounded total degree:
 
+**(W3)**
+
 ```math
 [L_a,L_b]=0,\qquad
 L^\alpha:=L_1^{\alpha_1}\cdots L_r^{\alpha_r}=0
 \quad\text{when }|\alpha|>B.
-\tag{W3}
 ```
 
 Indeed, products of more than $`B`$ individual lowering operators repeat a site, and $`a_j^2=0`$.
 
 For a fixed excitation sector, consider the linear map
+
+**(W4)**
 
 ```math
 T_k:\mathcal H_k\longrightarrow
@@ -46,7 +51,6 @@ T_k:\mathcal H_k\longrightarrow
 \mathcal K_{G,k-|\alpha|},
 \qquad
 T_k\psi=(P_GL^\alpha\psi)_\alpha.
-\tag{W4}
 ```
 
 The target grading follows from Lemma 1 of [the model](model.md): $`P_G`$ preserves excitation sectors, and $`L^\alpha`$ lowers excitation by $`|\alpha|`$.
@@ -60,15 +64,18 @@ L_aL^\alpha\psi=0
 
 Thus $`L^\alpha\psi`$ already lies in $`\mathcal K_{G,k-|\alpha|}`$, and its projection by $`P_G`$ is nonzero. At least one component of $`T_k\psi`$ is therefore nonzero. Comparing dimensions gives
 
+**(W5)**
+
 ```math
 \binom Bk
 \le
 \sum_{\substack{\alpha\in\mathbb N_0^r\\|\alpha|\le k}}
 d_{k-|\alpha|}.
-\tag{W5}
 ```
 
 Multiply (W5) by $`z^k`$ and sum over $`k`$. Reindex with $`j=k-|\alpha|`$:
+
+**(W6)**
 
 ```math
 \begin{aligned}
@@ -81,7 +88,6 @@ z^{|\alpha|}\\
 Z_G(z)\sum_{\alpha\in\mathbb N_0^r}z^{|\alpha|}\\
 &=Z_G(z)(1-z)^{-r}.
 \end{aligned}
-\tag{W6}
 ```
 
 The last series converges because $`z<1`$. Rearranging proves (W2). For $`r=0`$, the only multi-index is empty and every map is the identity. $`\square`$
@@ -134,15 +140,18 @@ The corresponding product state is
 
 Since $`P_G`$ commutes with $`\widehat N`$, conditioning this product state on the dark subspace gives a legitimate density operator
 
+**(W7)**
+
 ```math
 \rho_{G,p}
 =\frac{P_Gz^{\widehat N}}{Z_G(z)}.
-\tag{W7}
 ```
 
 This is a mathematical input state for the channel-coding bound. It is not a requirement that an unknown stored payload be replaced by a mixed state, nor a proposal to implement the encoder by postselecting a physical projection.
 
 **Corollary 2.** With relative entropy measured in bits,
+
+**(W8)**
 
 ```math
 \begin{aligned}
@@ -151,7 +160,6 @@ D\!\left(\rho_{G,p}\middle\|\tau_p^{\otimes B}\right)
 &\le-r\log(1-z)\\
 &=r\log\frac{1-p}{1-2p}.
 \end{aligned}
-\tag{W8}
 ```
 
 **Proof.** On the support of $`\rho_{G,p}`$,
@@ -169,7 +177,7 @@ Their difference is a scalar there. Taking its expectation proves the equality i
 Equivalently, the product state has dark-space weight
 
 ```math
-w_G(p)=\operatorname{Tr}(P_G\tau_p^{\otimes B})
+w_G(p)=\mathrm{Tr}(P_G\tau_p^{\otimes B})
 \ge(1-z)^r,
 ```
 
@@ -179,20 +187,22 @@ and the conditioning costs at most $`-\log w_G(p)`$ information bits. At fixed $
 
 The factor in (W2) has a simple sharpness check. For one uniform collective lowering operator on $`B`$ emitters, the familiar spin decomposition gives
 
+**(W9)**
+
 ```math
 d_k=\binom Bk-\binom B{k-1}
 \quad(0\le k\le\lfloor B/2\rfloor),
 \qquad d_k=0\quad(k>\lfloor B/2\rfloor),
-\tag{W9}
 ```
 
 where $`\binom B{-1}=0`$. Put $`m=\lfloor B/2\rfloor`$ and let $`X\sim\mathrm{Bin}(B,p)`$, with $`p=z/(1+z)<1/2`$. Then
+
+**(W10)**
 
 ```math
 \frac{Z_G(z)}{(1+z)^B}
 =\Pr(X\le m)-z\Pr(X\le m-1)
 \longrightarrow1-z.
-\tag{W10}
 ```
 
 Both probabilities tend to one because the mean lies strictly below $`B/2`$. Thus the one-profile factor $`1-z`$ is attained asymptotically at the partition-function level. Disjoint large uniform groups give the corresponding product factor for any fixed number of groups. This does not by itself determine the exact capacity deficit of those groups.
@@ -203,19 +213,21 @@ The distinction from the unweighted count is useful: an amplitude-damping-optima
 
 Keeping the finite monomial sum in (W6), rather than replacing it by an infinite geometric series, permits $`z=1`$. There are $`\binom{B+r}{r}`$ multi-indices of degree at most $`B`$. Hence the inherited unweighted bound is
 
+**(W11)**
+
 ```math
 \dim\mathcal K_G
 \ge\frac{2^B}{\binom{B+r}{r}}.
-\tag{W11}
 ```
 
 Its worst-profile dimension redundancy has order
 
+**(W12)**
+
 ```math
-B-\log\min_{\operatorname{rank}G=r}\dim\mathcal K_G
+B-\log\min_{\mathrm{rank}G=r}\dim\mathcal K_G
 =\Theta\!\left(r\log\frac Br\right),
 \qquad1\le r=o(B).
-\tag{W12}
 ```
 
 For completeness, the two directions use the same admissible profile class as (M1). Equation (W11) and the standard binomial bound give the upper redundancy bound

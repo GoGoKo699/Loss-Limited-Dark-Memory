@@ -8,19 +8,21 @@ The exact dark-space reduction survives arbitrary uncertainty in the coefficient
 
 Fix a cell size $`B`$, a nominal profile matrix $`G`$ of row rank $`r`$, a storage time $`t`$, and $`1/2<\eta=e^{-\kappa t}<1`$. Let $`V_G`$ embed an abstract input space of dimension $`d_G=\dim\mathcal K_G`$ into the nominal common dark space. The ideal cell channel is
 
+**(R1)**
+
 ```math
 \mathcal N_0(\rho)
 =\mathcal A_\eta^{\otimes B}(V_G\rho V_G^\dagger).
-\tag{R1}
 ```
 
 The actual channel belongs to a declared set $`\mathfrak I`$ of channels with this same input and output interface. We assume
+
+**(R2)**
 
 ```math
 \sup_{\mathcal N\in\mathfrak I}
 \frac12\|\mathcal N-\mathcal N_0\|_\diamond\le\epsilon,
 \qquad 0\le\epsilon\le1.
-\tag{R2}
 ```
 
 The diamond norm includes an arbitrary reference entangled with the input. It is sufficient to certify (R2) on the nominal encoded input space; the physical channel can behave very differently on unused bright inputs.
@@ -33,32 +35,35 @@ No control is applied during the storage interval. Calibration is performed on s
 
 Write
 
+**(R3)**
+
 ```math
 g(\epsilon)=(1+\epsilon)
 h_2\!\left(\frac{\epsilon}{1+\epsilon}\right).
-\tag{R3}
 ```
 
 The constants $`Q_{\mathrm{AD}}(\eta)`$ and $`c_\eta`$ are defined in [the capacity theorem](capacity.md).
 
 **Theorem 1 — Robust finite-cell rate.** Under (R2) and the fixed-channel product-use assumption, every strictly smaller nonnegative rate than
 
+**(R4)**
+
 ```math
 R_{\mathrm{rob}}
 =Q_{\mathrm{AD}}(\eta)
 -\frac{c_\eta r}{B}
 -\frac{2\epsilon\log_2 d_G+g(\epsilon)}{B}
-\tag{R4}
 ```
 
 is achievable in logical qubits per physical emitter by a sequence of common encoders and decoders whose entanglement fidelity tends to one uniformly over $`\mathfrak I`$. In particular the simpler lower bound is
+
+**(R5)**
 
 ```math
 R_{\mathrm{rob}}
 \ge Q_{\mathrm{AD}}(\eta)
 -\frac{c_\eta r}{B}
 -2\epsilon-\frac{g(\epsilon)}{B}.
-\tag{R5}
 ```
 
 A negative right-hand side gives no positive-rate certificate. The physical width is $`mB`$, including every initialized redundant emitter.
@@ -72,22 +77,24 @@ I_c(\rho_*,\mathcal N_0)
 
 Purify $`\rho_*`$ with a reference $`R`$ of dimension at most $`d_G`$. Condition (R2) bounds the trace distance of the two reference-output states by $`\epsilon`$. Coherent information equals minus their conditional entropy $`S(R\mid Y)`$. Winter's conditional-entropy continuity bound, Lemma 2 of [the primary paper](https://arxiv.org/pdf/1507.07775), gives
 
+**(R6)**
+
 ```math
 I_c(\rho_*,\mathcal N)
 \ge I_c(\rho_*,\mathcal N_0)
 -2\epsilon\log_2d_G-g(\epsilon)
 \quad\text{for every }\mathcal N\in\mathfrak I.
-\tag{R6}
 ```
 
 The uninformed-encoder, uninformed-decoder compound-channel theorem of Bjelaković, Boche, and Nötzel, Theorem 1 of [the primary paper](https://arxiv.org/pdf/0811.4588), states
+
+**(R7)**
 
 ```math
 Q(\mathfrak I)
 =\lim_{\ell\to\infty}\frac1\ell
 \max_{\rho_\ell}\inf_{\mathcal N\in\mathfrak I}
 I_c(\rho_\ell,\mathcal N^{\otimes\ell}).
-\tag{R7}
 ```
 
 Taking product copies of the fixed $`\rho_*`$ in (R7) yields
@@ -104,18 +111,21 @@ For a fixed finite cell with a strict positive nominal margin, continuity leaves
 
 Use $`\mathcal D[L](\rho)=L\rho L^\dagger-\{L^\dagger L,\rho\}/2`$. Suppose the nominal and actual finite-dimensional generators are
 
+**(R8)**
+
 ```math
 \begin{aligned}
 \mathcal L_0&=\sum_a\mathcal D[L_a]+\mathcal L_{\mathrm{loc}},\\
 \mathcal L_1&=\sum_a\mathcal D[L_a+E_a]
  +\mathcal L_{\mathrm{loc}}-i[\Delta H,\cdot]+\mathcal R,
 \end{aligned}
-\tag{R8}
 ```
 
 and both generate completely positive trace-preserving evolution. The extra term $`\mathcal R`$ can include added local noise or a change in the local-loss generator. Rates are included in the jump amplitudes. Operator norms below are spectral norms; generator norms are diamond norms.
 
 **Proposition 2.** A sufficient error radius is
+
+**(R9)**
 
 ```math
 \epsilon_{\mathrm{hold}}
@@ -123,7 +133,6 @@ and both generate completely positive trace-preserving evolution. The extra term
 t\sum_a\bigl(2\|L_a\|\|E_a\|+\|E_a\|^2\bigr)
  +t\|\Delta H\|
  +\frac t2\|\mathcal R\|_\diamond\right\}.
-\tag{R9}
 ```
 
 **Proof.** Expanding the jump dissipators and using
@@ -154,9 +163,10 @@ Large nominal collective strengths can make the general bound (R9) restrictive. 
 
 Suppose the actual collective jumps have the form
 
+**(R10)**
+
 ```math
 \widetilde L_a(s)=\sum_b M_{ab}(s)L_b,
-\tag{R10}
 ```
 
 with arbitrary unknown coefficients, strengths, and time dependence. Every $`\widetilde L_a(s)`$ still annihilates $`\mathcal K_G`$. The local-loss invariance proof then makes their dissipators exactly inactive throughout storage. The same is true of any Hermitian Hamiltonian $`\sum_{a,b}h_{ab}(s)L_a^\dagger L_b`$. No accuracy requirement is imposed on these coefficients. A supplied span may conservatively contain modes that are absent in the actual sample.
@@ -176,11 +186,12 @@ For an estimate $`\widehat G`$ of the same row rank as $`G`$, suppose
 
 For a unit vector $`v\in\ker\widehat G`$,
 
+**(R11)**
+
 ```math
-\operatorname{dist}(v,\ker G)
+\mathrm{dist}(v,\ker G)
 \le\frac{\|Gv\|}{\sigma_{\min}^{+}(G)}
 \le\frac{\xi}{s-\xi}.
-\tag{R11}
 ```
 
 Here the first inequality follows by resolving $`v`$ into the kernel and its orthogonal complement; the second uses the singular-value perturbation bound. With equal kernel dimensions this also bounds the largest principal-angle sine. Thus a reliable inferred subspace requires a gap as well as an entry-error estimate.
@@ -197,11 +208,12 @@ The following protocols distinguish the channel promise used in a theorem from t
 
 For the pair task, run $`N_{\mathrm{cal}}`$ independent fresh BB84 challenges through the complete preparation, hold, retrieval, and basis-measurement procedure. Let $`\widehat p`$ be the observed bit-error fraction. Hoeffding's bound gives the one-sided certificate
 
+**(R12)**
+
 ```math
 p\le\widehat p+
 \sqrt{\frac{\ln(1/\beta)}{2N_{\mathrm{cal}}}}
 \quad\text{with probability at least }1-\beta.
-\tag{R12}
 ```
 
 For example, $`N_{\mathrm{cal}}=23026`$ certifies a $`0.01`$ additive margin at confidence $`0.99`$. Each trial consumes a fresh challenge, two emitter uses for duration $`t`$, constant-size endpoint operations, and one final bit measurement. Reusing a physical pair requires reset and independently renewed reservoirs between trials. Parallel calibration uses the corresponding additional physical width.
@@ -216,19 +228,21 @@ An explicit process-tomography construction shows that (R2) can be acquired at a
 
 Put $`D=2^B`$. Use the $`D^2`$ Hermitian Pauli strings $`P,Q`$ and define the physical channel's transfer coefficients
 
+**(R13)**
+
 ```math
-T_{QP}=D^{-1}\operatorname{Tr}[Q\mathcal T(P)].
-\tag{R13}
+T_{QP}=D^{-1}\mathrm{Tr}[Q\mathcal T(P)].
 ```
 
 For $`P\ne I`$, prepare $`\rho_{P,\pm}=(I\pm P)/D`$ and measure $`Q`$ at the output. Each mixed input can be prepared by classically sampling product Pauli eigenstates with the specified parity. The half-difference of the two output means is $`T_{QP}`$. For $`P=I`$, prepare $`I/D`$. Measuring a Pauli string uses local Pauli measurements and their classical parity; no entangled probe is required.
 
 There are at most $`2D^4`$ preparation/measurement settings. Taking at least
 
+**(R14)**
+
 ```math
 n_0=\left\lceil\frac{2}{u^2}
 \ln\frac{4D^4}{\beta}\right\rceil
-\tag{R14}
 ```
 
 independent samples per setting ensures that every estimated transfer entry has error at most $`u`$, simultaneously with confidence at least $`1-\beta`$.
@@ -245,21 +259,23 @@ The trace-norm/rank inequality and the standard normalized-Choi bound
 $`\|\mathcal T_1-\mathcal T_2\|_\diamond\le D\|J_1-J_2\|_1`$
 then yield
 
+**(R15)**
+
 ```math
 \frac12\|\mathcal T_{\mathrm{fit}}-\mathcal T\|_\diamond
 \le D^3u.
-\tag{R15}
 ```
 
 The Choi bound also follows directly by writing an arbitrary purified channel input as a linear map applied to one half of a normalized maximally entangled state, whose squared map norm is at most $`D`$.
 
 Choose $`u=\epsilon_{\mathrm{cal}}/D^3`$. This sufficient protocol uses
 
+**(R16)**
+
 ```math
 N_{\mathrm{cal}}
 =O\!\left(D^{10}\epsilon_{\mathrm{cal}}^{-2}
 \log\frac{D}{\beta}\right)
-\tag{R16}
 ```
 
 cell exposures, together with an exponentially large data table and a finite-dimensional semidefinite fit. The estimate is intentionally conservative, not a sample-optimal proposal. It makes the cost of an unrestricted certificate explicit.
