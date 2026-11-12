@@ -10,32 +10,35 @@ The theorem is about the dark-input capacity defined in [the model](model.md), n
 
 Let
 
+**(C1)**
+
 ```math
 h_2(x)=-x\log x-(1-x)\log(1-x),
 \qquad
 f_\eta(p)=h_2(\eta p)-h_2((1-\eta)p),
-\tag{C1}
 ```
 
 with entropy values at zero and one defined by continuity. The ordinary amplitude-damping quantum capacity is
+
+**(C2)**
 
 ```math
 Q_{\mathrm{AD}}(\eta)
 =\begin{cases}
 0,&0\le\eta\le1/2,\\
-\displaystyle\max_{0\le p\le1}f_\eta(p),&1/2<\eta\le1.
+\displaystyle\max_{0\le p\le1}f_\eta(p),&1/2\lt \eta\le1.
 \end{cases}
-\tag{C2}
 ```
 
 This benchmark and its degradability argument are established results; see [Giovannetti and Fazio (2005)](https://arxiv.org/abs/quant-ph/0405110) and [Wolf and Pérez-García (2007)](https://arxiv.org/abs/quant-ph/0607070). We recall the facts needed for the restricted channel.
 
 A complementary channel of $`\mathcal A_\eta`$ is $`\mathcal A_{1-\eta}`$, up to an environmental basis convention. For $`\eta\ge1/2`$,
 
+**(C3)**
+
 ```math
 \mathcal A_{(1-\eta)/\eta}\circ\mathcal A_\eta
 =\mathcal A_{1-\eta}.
-\tag{C3}
 ```
 
 Thus the channel is degradable: its environment output can be reconstructed from its receiver output. For $`\eta\le1/2`$, the reverse relation makes it antidegradable and gives zero unassisted quantum capacity.
@@ -49,6 +52,8 @@ I_c(\rho,\mathcal N)
 
 The standard quantum-channel coding theorem expresses capacity as regularized maximum coherent information. Degradability makes that maximum additive and therefore single-letter. One way to see the relevant additivity is to take two degradable channels and an arbitrary joint input. Their coherent information obeys
 
+**(C4)**
+
 ```math
 \begin{aligned}
 I_c(\rho_{12},\mathcal N_1\otimes\mathcal N_2)
@@ -56,24 +61,24 @@ I_c(\rho_{12},\mathcal N_1\otimes\mathcal N_2)
 &\quad-I(B_1:B_2)+I(E_1:E_2)\\
 &\le I_c(\rho_1,\mathcal N_1)+I_c(\rho_2,\mathcal N_2),
 \end{aligned}
-\tag{C4}
 ```
 
 because local degrading maps take $`B_1B_2`$ to $`E_1E_2`$, and mutual information cannot increase under them. Product inputs attain the reverse inequality after maximization.
 
-Coherent information of a degradable channel is concave in the input. Indeed, an isometric extension of a degrading map expresses it as a conditional entropy. Averaging a one-qubit input over phase rotations therefore cannot lower its amplitude-damping coherent information: the channel and complement are phase covariant, and the averaging removes off-diagonal entries. For the resulting diagonal input $`\tau_p=\operatorname{diag}(1-p,p)`$, the receiver and environment excitation probabilities are respectively $`\eta p`$ and $`(1-\eta)p`$. This gives (C1)–(C2).
+Coherent information of a degradable channel is concave in the input. Indeed, an isometric extension of a degrading map expresses it as a conditional entropy. Averaging a one-qubit input over phase rotations therefore cannot lower its amplitude-damping coherent information: the channel and complement are phase covariant, and the averaging removes off-diagonal entries. For the resulting diagonal input $`\tau_p=\mathrm{diag}(1-p,p)`$, the receiver and environment excitation probabilities are respectively $`\eta p`$ and $`(1-\eta)p`$. This gives (C1)–(C2).
 
 ### The optimizer lies below half excitation
 
-**Lemma 1.** For every $`1/2<\eta<1`$, $`f_\eta`$ has a unique maximizer $`p_\eta\in(0,1/2)`$.
+**Lemma 1.** For every $`1/2\lt \eta\lt 1`$, $`f_\eta`$ has a unique maximizer $`p_\eta\in(0,1/2)`$.
 
-**Proof.** Direct differentiation on $`0<p<1`$ gives
+**Proof.** Direct differentiation on $`0\lt p\lt 1`$ gives
+
+**(C5)**
 
 ```math
 f_\eta''(p)
 =-\frac{2\eta-1}
-{(\ln2)\,p(1-\eta p)(1-(1-\eta)p)}<0.
-\tag{C5}
+{(\ln2)\,p(1-\eta p)(1-(1-\eta)p)}\lt 0.
 ```
 
 The derivative tends to $`+\infty`$ as $`p\downarrow0`$. To locate its sign at $`p=1/2`$, define
@@ -90,22 +95,23 @@ Then $`f_\eta'(1/2)=g(\eta)/\ln2`$, while $`g(1/2)=g(1)=0`$ by continuous extens
 g''(\eta)
 =\frac{4(2\eta-1)(\eta^2-\eta+1)}
 {\eta(1-\eta)(2-\eta)^2(1+\eta)^2}>0
-\quad(1/2<\eta<1).
+\quad(1/2\lt \eta\lt 1).
 ```
 
-Strict convexity gives $`g(\eta)<0`$ between its two zero endpoints. Thus the strictly decreasing $`f_\eta'`$ has one zero before $`1/2`$, proving the claim. $`\square`$
+Strict convexity gives $`g(\eta)\lt 0`$ between its two zero endpoints. Thus the strictly decreasing $`f_\eta'`$ has one zero before $`1/2`$, proving the claim. $`\square`$
 
 For the remainder of the positive-capacity theorem put
+
+**(C6)**
 
 ```math
 z_\eta=\frac{p_\eta}{1-p_\eta},
 \qquad
 c_\eta=-\log(1-z_\eta)
 =\log\frac{1-p_\eta}{1-2p_\eta}.
-\tag{C6}
 ```
 
-At fixed $`1/2<\eta<1`$, this is a finite positive constant depending only on the independent-loss level.
+At fixed $`1/2\lt \eta\lt 1`$, this is a finite positive constant depending only on the independent-loss level.
 
 ## 2. The restricted channel remains degradable
 
@@ -127,23 +133,25 @@ Since $`V_G`$ is an isometry, a complement is
 
 The product degrading map in (C3) still reconstructs this complement. Consequently
 
+**(C7)**
+
 ```math
 Q_{\mathrm{dark}}(G,\eta)
-=\max_{\substack{\rho\ge0,\ \operatorname{Tr}\rho=1\\
-                 \operatorname{supp}\rho\subseteq\mathcal K_G}}
+=\max_{\substack{\rho\ge0,\ \mathrm{Tr}\rho=1\\
+                 \mathrm{supp}\rho\subseteq\mathcal K_G}}
 I_c(\rho,\mathcal A_\eta^{\otimes B})
 \quad(\eta\ge1/2).
-\tag{C7}
 ```
 
 Equation (C7) uses physical input states in the common kernel; it is equivalent to maximizing over the abstract input of $`V_G`$. It follows from the ordinary coding theorem, not from an assumption that one cell realizes its coherent information at finite blocklength. For $`\eta\le1/2`$, the restricted channel is antidegradable as well, and its capacity is zero.
 
 Since a dark-input encoder is also an admissible encoder for ordinary independent amplitude damping,
 
+**(C8)**
+
 ```math
 Q_{\mathrm{dark}}(G,\eta)
 \le BQ_{\mathrm{AD}}(\eta).
-\tag{C8}
 ```
 
 This comparison does not constrain unrestricted encodings for the full collective-plus-local generator outside the common kernel.
@@ -152,15 +160,17 @@ This comparison does not constrain unrestricted encodings for the full collectiv
 
 The following identity avoids converting a sublinear relative-entropy deficit into a weaker trace-distance estimate.
 
-**Lemma 2.** Let $`0<\eta<1`$, $`0<p<1`$, and let $`\rho`$ be any $`B`$-qubit state. Write
+**Lemma 2.** Let $`0\lt \eta\lt 1`$, $`0\lt p\lt 1`$, and let $`\rho`$ be any $`B`$-qubit state. Write
 
 ```math
-\mu=\operatorname{Tr}(\rho\widehat N),\quad
+\mu=\mathrm{Tr}(\rho\widehat N),\quad
 \rho_Y=\mathcal A_\eta^{\otimes B}(\rho),\quad
 \rho_E=\mathcal A_{1-\eta}^{\otimes B}(\rho).
 ```
 
 Then
+
+**(C9)**
 
 ```math
 \begin{aligned}
@@ -169,20 +179,20 @@ I_c(\rho,\mathcal A_\eta^{\otimes B})
 &\quad-D(\rho_Y\|\tau_{\eta p}^{\otimes B})
        +D(\rho_E\|\tau_{(1-\eta)p}^{\otimes B}).
 \end{aligned}
-\tag{C9}
 ```
 
-**Proof.** For any state $`\sigma`$ and any $`0<q<1`$,
+**Proof.** For any state $`\sigma`$ and any $`0\lt q\lt 1`$,
+
+**(C10)**
 
 ```math
 S(\sigma)
-=Bh_2(q)+\bigl(\operatorname{Tr}(\sigma\widehat N)-Bq\bigr)
+=Bh_2(q)+\bigl(\mathrm{Tr}(\sigma\widehat N)-Bq\bigr)
            \log\frac{1-q}{q}
 -D(\sigma\|\tau_q^{\otimes B}).
-\tag{C10}
 ```
 
-This follows by expanding $`-\operatorname{Tr}(\sigma\log\tau_q^{\otimes B})`$. Amplitude damping sends mean excitation $`\mu`$ to $`\eta\mu`$, and its complement sends it to $`(1-\eta)\mu`$. Apply (C10) to the two outputs with $`q=\eta p`$ and $`q=(1-\eta)p`$, and subtract. The coefficient of $`\mu-Bp`$ is exactly $`f_\eta'(p)`$. $`\square`$
+This follows by expanding $`-\mathrm{Tr}(\sigma\log\tau_q^{\otimes B})`$. Amplitude damping sends mean excitation $`\mu`$ to $`\eta\mu`$, and its complement sends it to $`(1-\eta)\mu`$. Apply (C10) to the two outputs with $`q=\eta p`$ and $`q=(1-\eta)p`$, and subtract. The coefficient of $`\mu-Bp`$ is exactly $`f_\eta'(p)`$. $`\square`$
 
 At the capacity optimizer $`p=p_\eta`$, the mean-excitation correction vanishes exactly. Moreover, relative-entropy data processing gives
 
@@ -193,24 +203,26 @@ D(\rho_Y\|\tau_{\eta p_\eta}^{\otimes B})
 
 because the product comparison state is mapped to the indicated product output. Nonnegativity of the environmental relative entropy then implies
 
+**(C11)**
+
 ```math
 I_c(\rho,\mathcal A_\eta^{\otimes B})
 \ge BQ_{\mathrm{AD}}(\eta)
 -D(\rho\|\tau_{p_\eta}^{\otimes B}).
-\tag{C11}
 ```
 
 No assumption about the actual mean excitation of $`\rho`$ is needed in (C11).
 
 ## 4. A finite bound for every profile
 
-**Theorem 3 — Finite capacity penalty.** For every rank-$`r`$ profile matrix $`G\in\mathbb C^{r\times B}`$ and fixed $`1/2<\eta<1`$,
+**Theorem 3 — Finite capacity penalty.** For every rank-$`r`$ profile matrix $`G\in\mathbb C^{r\times B}`$ and fixed $`1/2\lt \eta\lt 1`$,
+
+**(C12)**
 
 ```math
 \max\{0,\,BQ_{\mathrm{AD}}(\eta)-c_\eta r\}
 \le Q_{\mathrm{dark}}(G,\eta)
 \le BQ_{\mathrm{AD}}(\eta).
-\tag{C12}
 ```
 
 **Proof.** Use the dark Gibbs state $`\rho_{G,p_\eta}`$ from [the weighted bound](weighted-kernel.md). Its relative entropy from the optimal product input is at most $`c_\eta r`$. Equation (C11), followed by the maximization in (C7), proves the lower bound. Capacity is nonnegative, and (C8) supplies the upper bound. $`\square`$
@@ -219,13 +231,14 @@ Every cell has $`B`$ physical carriers, including all initialized redundancy. Eq
 
 As an immediate consequence, for any sequence $`r_B=o(B)`$,
 
+**(C13)**
+
 ```math
-\sup_{\operatorname{rank}G=r_B}
+\sup_{\mathrm{rank}G=r_B}
 \left|
 \frac{Q_{\mathrm{dark}}(G,\eta)}B-Q_{\mathrm{AD}}(\eta)
 \right|
 \le c_\eta\frac{r_B}{B}\longrightarrow0.
-\tag{C13}
 ```
 
 Thus collective radiation imposes asymptotically no rate penalty relative to the independent-loss benchmark within the dark-input architecture. This is a capacity statement, with the coding convention specified in the model.
@@ -237,7 +250,7 @@ The qualitative limit also follows from the inherited unweighted dimension defic
 =\mathcal A_{2p_\eta}^{\otimes B}(P_G/d_G).
 ```
 
-This is a valid dark-supported state because $`0<2p_\eta<1`$ and homogeneous amplitude damping preserves the common kernel. The same attenuation maps $`(I/2)^{\otimes B}`$ to $`\tau_{p_\eta}^{\otimes B}`$. Consequently data processing gives
+This is a valid dark-supported state because $`0\lt 2p_\eta\lt 1`$ and homogeneous amplitude damping preserves the common kernel. The same attenuation maps $`(I/2)^{\otimes B}`$ to $`\tau_{p_\eta}^{\otimes B}`$. Consequently data processing gives
 
 ```math
 D(\widetilde\rho_G\|\tau_{p_\eta}^{\otimes B})
@@ -258,27 +271,30 @@ The inherited dimension bound makes this deficit at most $`\log\binom{B+r}{r}`$,
 
 Define the worst-profile deficit by
 
+**(C14)**
+
 ```math
 \Delta_{\max}(B,r;\eta)
 =BQ_{\mathrm{AD}}(\eta)
--\inf_{\substack{G\in\mathbb C^{r\times B}\\\operatorname{rank}G=r}}
+-\inf_{\substack{G\in\mathbb C^{r\times B}\\\mathrm{rank}G=r}}
  Q_{\mathrm{dark}}(G,\eta).
-\tag{C14}
 ```
 
 The infimum avoids any unnecessary continuity assumption about kernel dimension as profiles change. The finite upper bound in (C12) gives
 
+**(C15)**
+
 ```math
 \Delta_{\max}(B,r;\eta)
 \le\min\{BQ_{\mathrm{AD}}(\eta),c_\eta r\}.
-\tag{C15}
 ```
 
 **Proposition 4 — Disjoint collective-pair example.** If $`B\ge2r`$, there are rank-$`r`$ collective profiles for which
 
+**(C16)**
+
 ```math
 Q_{\mathrm{dark}}(G,\eta)=(B-r)Q_{\mathrm{AD}}(\eta).
-\tag{C16}
 ```
 
 **Proof.** For $`a=1,\ldots,r`$, use the disjoint profiles
@@ -291,12 +307,14 @@ On each pair the kernel is exactly
 
 ```math
 \mathcal K_{\mathrm{pair}}
-=\operatorname{span}\{|00\rangle,|s\rangle\},
+=\mathrm{span}\{|00\rangle,|s\rangle\},
 \qquad
 |s\rangle=\frac{|01\rangle-|10\rangle}{\sqrt2}.
 ```
 
 Under independent local amplitude damping,
+
+**(C17)**
 
 ```math
 \begin{aligned}
@@ -306,7 +324,6 @@ Under independent local amplitude damping,
 |00\rangle\langle s|&\longmapsto
 \sqrt\eta\,|00\rangle\langle s|.
 \end{aligned}
-\tag{C17}
 ```
 
 These four matrix-unit actions, including the adjoint of the last, identify exactly one logical channel $`\mathcal A_\eta`$ on the pair. The other $`B-2r`$ emitters are unrestricted and each contributes another $`\mathcal A_\eta`$. The full restricted channel is therefore unitarily equivalent, on its input and supported output, to $`\mathcal A_\eta^{\otimes(B-r)}`$. Its capacity is (C16). $`\square`$
@@ -315,20 +332,22 @@ The profile class explicitly permits the zero coefficients outside these disjoin
 
 For all $`r\le B`$, an alternative admissible example uses $`r`$ independent single-site lowering profiles. Its common kernel fixes those $`r`$ emitters in their ground states and again gives (C16). This extends the lower deficit bound to the whole rank range.
 
-**Corollary 5 — Sharp noisy rank order.** For every $`1\le r\le B`$ and fixed $`1/2<\eta<1`$,
+**Corollary 5 — Sharp noisy rank order.** For every $`1\le r\le B`$ and fixed $`1/2\lt \eta\lt 1`$,
+
+**(C18)**
 
 ```math
 rQ_{\mathrm{AD}}(\eta)
 \le\Delta_{\max}(B,r;\eta)
 \le\min\{BQ_{\mathrm{AD}}(\eta),c_\eta r\}.
-\tag{C18}
 ```
 
 In particular,
 
+**(C19)**
+
 ```math
 \Delta_{\max}(B,r;\eta)=\Theta_\eta(r).
-\tag{C19}
 ```
 
 The constants depend on the fixed local-loss parameter. The result matches the order, not the optimal coefficient or exact finite worst-profile capacity. For the sublinear-rank regime, the two-emitter collective example already supplies the lower bound for all sufficiently large cells.
@@ -340,16 +359,17 @@ The three regimes should be kept separate.
 | Local survival | Dark-input capacity and worst-profile statement |
 | --- | --- |
 | $`0\le\eta\le1/2`$ | Every restricted channel is antidegradable; $`Q_{\mathrm{dark}}=0`$. |
-| Fixed $`1/2<\eta<1`$ | Equations (C12) and (C18) give the finite linear-rank penalty. |
+| Fixed $`1/2\lt \eta\lt 1`$ | Equations (C12) and (C18) give the finite linear-rank penalty. |
 | $`\eta=1`$ | The restricted channel is noiseless on $`\mathcal K_G`$; $`Q_{\mathrm{dark}}(G,1)=\log\dim\mathcal K_G`$. |
 
 At the noiseless endpoint, the inherited dimension law in [the weighted-kernel account](weighted-kernel.md#4-relation-to-the-noiseless-dimension-law) gives
+
+**(C20)**
 
 ```math
 \Delta_{\max}(B,r;1)
 =\Theta\!\left(r\log\frac Br\right),
 \qquad1\le r=o(B).
-\tag{C20}
 ```
 
 This is the same deficit definition as (C14), since $`Q_{\mathrm{AD}}(1)=1`$. The laws compare the additional restriction imposed by collective darkness against the independent-loss benchmark appropriate to each noise level.

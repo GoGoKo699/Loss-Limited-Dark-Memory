@@ -8,7 +8,7 @@ A common dark subspace can remove collective emission while independent local lo
 
 Let $`B`$ two-level emitters experience $`r`$ independent collective lowering profiles. Restrict storage inputs to their common kernel. All emitters count toward the rate, and encoding and decoding occur only at the boundaries of the storage interval. Independent local amplitude damping has the same excited-state survival $`\eta`$ on every emitter.
 
-For each fixed $`1/2<\eta<1`$, the capacity of one such cell satisfies
+For each fixed $`1/2\lt \eta\lt 1`$, the capacity of one such cell satisfies
 
 ```math
 BQ_{\mathrm{AD}}(\eta)-c_\eta r
@@ -45,6 +45,10 @@ At a 10% tolerated error fraction, 2,200 independent pairs have quantum acceptan
 Start with the [scientific map](science/README.md), then follow the [physical model](science/model.md), [weighted common kernel](science/weighted-kernel.md), [capacity theorem](science/capacity.md), [uncertainty bound](science/robustness.md), [implementation costs](science/implementation.md), and [operational advantage](science/operational-advantage.md). The [prior-work comparison](science/prior-work.md) identifies inherited ingredients and the specific new conclusion. The [reference index](references/README.md) organizes the source material.
 
 The [LLM reading guide](llms.txt) maps questions to authoritative pages.
+
+## Learn the project
+
+The [learning route](learning/README.md) uses Mark M. Wilde's *From Classical to Quantum Shannon Theory*, [arXiv:1106.1445v8](https://arxiv.org/abs/1106.1445v8), as its educational anchor. The [source bridge](learning/wilde-bridge.md) connects channel capacity and entropy to the collective-loss model, weighted dark-kernel proof and explicit storage examples. The [thirty-milestone map](learning/milestones.md) progresses from local physical and information-theoretic objects to the contribution's complete operational meaning.
 
 ## Reproduce the finite checks
 

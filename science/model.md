@@ -16,11 +16,12 @@ n_j=a_j^\dagger a_j,\qquad
 
 The supplied collective profile matrix is $`G\in\mathbb C^{r\times B}`$, with row rank $`r`$ and $`0\le r\le B`$. Its lowering operators and common dark space are
 
+**(M1)**
+
 ```math
 L_a=\sum_{j=1}^{B}G_{aj}a_j,
 \qquad
 \mathcal K_G=\bigcap_{a=1}^{r}\ker L_a.
-\tag{M1}
 ```
 
 For $`r=0`$, the intersection is the entire physical Hilbert space. The all-ground state belongs to $`\mathcal K_G`$ for every $`G`$. Coefficients may be unequal, complex, or zero. No permutation symmetry, spatial distribution, or separation between distinct coefficients is assumed.
@@ -36,6 +37,8 @@ Use the convention
 
 In a rotating frame, the nominal storage generator is
 
+**(M2)**
+
 ```math
 \mathcal L
 =\mathcal L_{\mathrm{col}}+\mathcal L_{\mathrm{loc}},
@@ -43,23 +46,24 @@ In a rotating frame, the nominal storage generator is
 \mathcal L_{\mathrm{col}}=\sum_{a=1}^{r}\mathcal D[L_a],
 \qquad
 \mathcal L_{\mathrm{loc}}=\kappa\sum_{j=1}^{B}\mathcal D[a_j].
-\tag{M2}
 ```
 
 The independent local-loss rate $`\kappa\ge0`$ is the same on every emitter. At storage time $`t`$, put
 
+**(M3)**
+
 ```math
 \eta=e^{-\kappa t}.
-\tag{M3}
 ```
 
 The single-emitter amplitude-damping channel $`\mathcal A_\eta`$ has Kraus operators
+
+**(M4)**
 
 ```math
 K_0=|0\rangle\langle0|+\sqrt\eta\,|1\rangle\langle1|,
 \qquad
 K_1=\sqrt{1-\eta}\,|0\rangle\langle1|.
-\tag{M4}
 ```
 
 Thus $`\eta`$ is the excited-state survival probability, not the loss probability. The local semigroup alone is $`\mathcal A_\eta^{\otimes B}`$.
@@ -70,13 +74,14 @@ The ideal model permits arbitrarily large finite collective rates. It assumes an
 
 **Lemma 1 — Grading.** The common dark space is an orthogonal direct sum of excitation sectors:
 
+**(M5)**
+
 ```math
 \mathcal K_G
 =\bigoplus_{k=0}^{B}\mathcal K_{G,k},
 \qquad
 \mathcal K_{G,k}
 =\mathcal K_G\cap\ker(\widehat N-kI).
-\tag{M5}
 ```
 
 In particular its orthogonal projector $`P_G`$ commutes with $`\widehat N`$.
@@ -93,23 +98,25 @@ In particular its orthogonal projector $`P_G`$ commutes with $`\widehat N`$.
 
 for all indices. Consequently every product $`a_S=\prod_{j\in S}a_j`$ preserves the common kernel. Lemma 1 shows that every function of $`\widehat N`$ also preserves it.
 
-For $`0<\eta<1`$, a product Kraus operator of the independent amplitude-damping channel, indexed by the set $`S`$ of emitters that lose an excitation, can be written
+For $`0\lt \eta\lt 1`$, a product Kraus operator of the independent amplitude-damping channel, indexed by the set $`S`$ of emitters that lose an excitation, can be written
+
+**(M6)**
 
 ```math
 K_S
 =\left(\frac{1-\eta}{\eta}\right)^{|S|/2}
 a_S\eta^{\widehat N/2}.
-\tag{M6}
 ```
 
 Both factors preserve $`\mathcal K_G`$. Therefore every Kraus branch maps the space into itself. The cases $`\eta=0,1`$ follow directly or by continuity. Tensoring the argument with a reference identity does not change it. $`\square`$
 
 **Proposition 3 — Exact reduction of simultaneous loss.** For every operator $`\rho`$ supported on $`\mathcal K_G`$,
 
+**(M7)**
+
 ```math
 e^{t\mathcal L}(\rho)
 =\mathcal A_{e^{-\kappa t}}^{\otimes B}(\rho).
-\tag{M7}
 ```
 
 This is an equality of channels on the entire dark input space, including reference-entangled inputs.
@@ -152,12 +159,13 @@ annihilate the common kernel. They remain inactive along the local-loss trajecto
 
 Choose any isometry $`V_G:\mathbb C^{d_G}\to(\mathbb C^2)^{\otimes B}`$ onto $`\mathcal K_G`$, where $`d_G=\dim\mathcal K_G`$. Define the effective cell channel
 
+**(M8)**
+
 ```math
 \mathcal N_{G,\eta}(\rho)
 =\mathcal A_\eta^{\otimes B}(V_G\rho V_G^\dagger),
 \qquad
 Q_{\mathrm{dark}}(G,\eta)=Q(\mathcal N_{G,\eta}).
-\tag{M8}
 ```
 
 The choice of basis isometry changes no capacity. The output is the complete $`B`$-emitter register; recovery may use all of it.

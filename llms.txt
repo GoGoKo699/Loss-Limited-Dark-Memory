@@ -13,6 +13,13 @@ This repository studies passive storage in the common kernel of arbitrary collec
 - Two-emitter delayed-basis retrieval, classical comparator and finite error budget: science/operational-advantage.md.
 - Attribution and model-level comparisons: science/prior-work.md and references/README.md.
 - Reproduction, numerical scope and committed diagnostics: verification/README.md and verification/results.json.
+- Educational entrypoint: learning/README.md.
+- Selected Wilde v8 source, notation translation and missing project steps: learning/wilde-bridge.md.
+- Thirty project-defined understanding targets, dependencies and source pointers: learning/milestones.md.
+
+## Reader intentions
+
+For the physical story, start at learning/wilde-bridge.md and science/model.md before the operational example. For a proof-first route, use science/weighted-kernel.md and science/capacity.md, then science/robustness.md. For systematic study, follow learning/milestones.md with its sole Wilde educational anchor. For reproduction, use verification/README.md; distinguish numerical channel checks, written analytical proofs and actual hosted mathematical comparison.
 
 ## Essential distinctions
 

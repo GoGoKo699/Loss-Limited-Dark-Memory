@@ -22,34 +22,37 @@ For $`m`$ challenges, this protocol uses $`2m`$ emitters and $`O(m)`$ boundary g
 
 For a rank-$`r`$ profile matrix $`G\in\mathbb C^{r\times B}`$, the one-excitation sector is naturally $`\mathbb C^B`$. The collective lowering map on that sector is exactly the matrix $`G`$, so
 
+**(I1)**
+
 ```math
 \dim\mathcal K_{G,1}=B-r.
-\tag{I1}
 ```
 
 Here $`r`$ is the actual row rank of the supplied span, not the number of possibly redundant listed modes. Select an orthonormal $`d`$-dimensional subspace
 
+**(I2)**
+
 ```math
 \mathcal C\subseteq\mathcal K_{G,1},
 \qquad 2\le d\le B-r.
-\tag{I2}
 ```
 
 Every codeword contains exactly one excitation. The vacuum $`|v\rangle=|0\cdots0\rangle`$ is orthogonal to the entire code.
 
 **Proposition 1 — Exact flagged channel.** Under uniform independent survival $`\eta=e^{-\kappa t}`$ and the collective model of [Model](model.md), the physical channel on $`\mathcal C`$ is
 
+**(I3)**
+
 ```math
 \mathcal E_\eta(\rho)
-=\eta\rho+(1-\eta)|v\rangle\langle v|\operatorname{Tr}\rho.
-\tag{I3}
+=\eta\rho+(1-\eta)|v\rangle\langle v|\mathrm{Tr}\rho.
 ```
 
 With a final isometry identifying $`\mathcal C`$ with a $`d`$-level register and the vacuum with an orthogonal erasure flag, this is the ordinary $`d`$-dimensional quantum erasure channel.
 
 **Proof.** The no-loss Kraus operator is $`\sqrt\eta I`$ on the single-excitation sector. Each nonzero loss branch is
 $`\sqrt{1-\eta}|v\rangle\langle j|`$, where $`|j\rangle`$ denotes the excitation at site $`j`$. Summing its action over $`j`$ gives
-$`(1-\eta)|v\rangle\langle v|\operatorname{Tr}\rho`$.
+$`(1-\eta)|v\rangle\langle v|\mathrm{Tr}\rho`$.
 All collective jumps annihilate $`\mathcal C`$, and every local loss ends in the vacuum, which is also dark. The simultaneous evolution therefore has exactly these branches. The argument applies to every encoded matrix unit and to reference-entangled inputs, proving a channel equality. $`\square`$
 
 The loss probability is independent of the logical state. Measuring only whether the output is vacuum consequently reveals a loss flag without measuring the surviving logical data. All erasures are kept in the record and handled by the outer decoder.
@@ -58,38 +61,43 @@ An arbitrary unknown common excitation phase acts as a global phase on the survi
 
 The unassisted capacity of (I3) is
 
+**(I4)**
+
 ```math
 Q(\mathcal E_\eta)
 =\max\{0,2\eta-1\}\log_2d.
-\tag{I4}
 ```
 
 This is the established erasure-channel capacity of [Bennett, DiVincenzo, and Smolin (1997)](https://arxiv.org/abs/quant-ph/9701015), with the elementary $`d`$-dimensional extension. It is an unassisted storage rate: the receiver reads flags only after the hold. A two-way-assisted communication rate would be a different resource interface.
 
 After charging all $`B`$ emitters per cell, the achievable rate is
 
+**(I5)**
+
 ```math
 R_{\mathrm{erase}}
 =\frac{\log_2d}{B}\max\{0,2\eta-1\}.
-\tag{I5}
 ```
 
-For an elementary binary implementation choose $`d=2^\ell\le B-r`$, with $`\ell=\lfloor\log_2(B-r)\rfloor`$. Each cell then carries $`\ell`$ outer-code qubits, all erased together on a loss. A selected smaller power of two is also allowed. When $`B-r<2`$, this construction has no nontrivial logical cell. It makes no claim of positive rate at those parameters merely from the presence of a one-dimensional dark state.
+For an elementary binary implementation choose $`d=2^\ell\le B-r`$, with $`\ell=\lfloor\log_2(B-r)\rfloor`$. Each cell then carries $`\ell`$ outer-code qubits, all erased together on a loss. A selected smaller power of two is also allowed. When $`B-r\lt 2`$, this construction has no nontrivial logical cell. It makes no claim of positive rate at those parameters merely from the presence of a one-dimensional dark state.
 
 ## 4. An explicit three-emitter qubit
 
 For one supplied uniform collective profile, $`B=3,r=1`$, use
 
+**(I6)**
+
 ```math
 |0_L\rangle=\frac{|100\rangle-|010\rangle}{\sqrt2},
 \qquad
 |1_L\rangle=\frac{|100\rangle+|010\rangle-2|001\rangle}{\sqrt6}.
-\tag{I6}
 ```
 
 Both coefficient vectors sum to zero, so every unknown scalar multiple of $`\sigma_1^-+\sigma_2^-+\sigma_3^-`$ annihilates them. They are orthonormal. Their span is the full two-dimensional dark single-excitation sector.
 
 For an explicit encoder, let $`G_{ab}(\theta)`$ be a number-preserving two-emitter rotation whose single-excitation action is
+
+**(I7)**
 
 ```math
 \begin{aligned}
@@ -98,7 +106,6 @@ G_{ab}(\theta)|a\rangle
 G_{ab}(\theta)|b\rangle
  &=\sin\theta\,|a\rangle+\cos\theta\,|b\rangle,
 \end{aligned}
-\tag{I7}
 ```
 
 and which fixes $`|00\rangle`$ and $`|11\rangle`$ on that pair. Here $`|a\rangle`$ denotes the excitation at site $`a`$. Put $`\theta=\arccos(1/\sqrt3)\in(0,\pi/2)`$. Starting with an input on emitter 1 and emitters 2 and 3 in zero, apply chronologically
@@ -113,9 +120,10 @@ Call the resulting unitary $`W`$. The first three gates send logical zero and on
 
 The decoder applies $`W^\dagger`$. A surviving codeword becomes the input qubit on emitter 1 with emitters 2 and 3 both zero. The erasure vacuum instead becomes
 
+**(I8)**
+
 ```math
 W^\dagger|000\rangle=|010\rangle.
-\tag{I8}
 ```
 
 Measuring emitter 2 therefore reads the erasure flag without disturbing surviving logical data. Emitters 2 and 3 can then be discarded. This specifies a physical decoder on the whole three-emitter space through a unitary and measurements, even though only the code and vacuum are reached in the exact model.
@@ -126,18 +134,19 @@ At $`\eta=0.9`$, (I5) is $`0.8/3=0.2666\ldots`$ logical qubits per physical emit
 
 For completeness, a direct random-stabilizer argument gives a constructive coding guarantee and its decoder costs. It avoids relying on an unproved efficient decoder for a general amplitude-damping channel.
 
-Use $`m`$ independent erasure cells of dimension $`d=2^\ell`$. Put $`n=m\ell`$ for the number of binary outer-code carriers before their inner embedding, and let $`k`$ be the unknown logical-qubit payload. Let the loss probability of each cell be at most $`\lambda<1/2`$, with losses independent of the payload and independent across cells. The cell channels may be nonidentical, provided they remain exact flagged erasure channels with this uniform upper bound.
+Use $`m`$ independent erasure cells of dimension $`d=2^\ell`$. Put $`n=m\ell`$ for the number of binary outer-code carriers before their inner embedding, and let $`k`$ be the unknown logical-qubit payload. Let the loss probability of each cell be at most $`\lambda\lt 1/2`$, with losses independent of the payload and independent across cells. The cell channels may be nonidentical, provided they remain exact flagged erasure channels with this uniform upper bound.
 
 Sample a uniform $`[[n,k]]`$ stabilizer code by conjugating a standard stabilizer with a uniform Clifford. Its classical description and the random seed are independent of the current payload. A uniformly random symplectic basis can be sampled by sequential linear algebra over $`\mathbb F_2`$; the stabilizer and a Clifford encoding circuit can be stored and operated in polynomial time.
 
 **Lemma 2 — Random-code erasure bound.** For a fixed set of $`e`$ erased cells, the probability over the sampled stabilizer code that this erasure pattern is uncorrectable satisfies
+
+**(I9)**
 
 ```math
 \Pr_{\mathrm{code}}[\mathrm{failure}\mid e]
 \le\min\left\{1,
 (2^{2\ell e}-1)\frac{2^{n+k}-1}{2^{2n}-1}\right\}
 \le\min\{1,2^{\,2\ell e-(n-k)+1}\}.
-\tag{I9}
 ```
 
 **Proof.** A stabilizer erasure pattern is correctable exactly when every Pauli supported on the erased qubits that commutes with all stabilizers belongs to the stabilizer. For a fixed nonidentity Pauli, symplectic invariance gives probability
@@ -145,24 +154,26 @@ $`(2^{n+k}-1)/(2^{2n}-1)`$ of lying in the normalizer of a uniformly random stab
 
 Let $`R=k/m`$ be the number of logical qubits per cell. Choose any $`a>0`$ such that
 
+**(I10)**
+
 ```math
-R<\ell\,[1-2(\lambda+a)].
-\tag{I10}
+R\lt \ell\,[1-2(\lambda+a)].
 ```
 
 An exponential-moment bound for the independent loss flags, followed by (I9), gives
+
+**(I11)**
 
 ```math
 \mathbb E_{\mathrm{code}}P_{\mathrm{fail}}
 \le\epsilon_m
 :=e^{-mD_e(\lambda+a\|\lambda)}
  +2^{\,1-m\{\ell-R-2\ell(\lambda+a)\}}.
-\tag{I11}
 ```
 
 For nonidentical loss probabilities at most $`\lambda`$, their moment generating function is bounded by that of a binomial variable with parameters $`m,\lambda`$, giving the same first term. Correctable patterns recover every logical state exactly, including its entanglement with a reference, so the average entanglement fidelity is at least $`1-\epsilon_m`$.
 
-Every $`R<\ell(1-2\lambda)`$ admits an $`a`$ satisfying (I10), proving the rate (I5) for binary cells. Markov's inequality also shows that all but at most a $`\sqrt{\epsilon_m}`$ fraction of sampled codes have failure probability at most $`\sqrt{\epsilon_m}`$. Thus this is an efficiently sampled and operated code ensemble with an exponentially improving performance guarantee. The argument does not give a polynomial certificate that a particular sampled code is good for every likely erasure pattern; it supplies an average guarantee and the stated high-probability conclusion.
+Every $`R\lt \ell(1-2\lambda)`$ admits an $`a`$ satisfying (I10), proving the rate (I5) for binary cells. Markov's inequality also shows that all but at most a $`\sqrt{\epsilon_m}`$ fraction of sampled codes have failure probability at most $`\sqrt{\epsilon_m}`$. Thus this is an efficiently sampled and operated code ensemble with an exponentially improving performance guarantee. The argument does not give a polynomial certificate that a particular sampled code is good for every likely erasure pattern; it supplies an average guarantee and the stated high-probability conclusion.
 
 ### Encoding and recovery operations
 
@@ -185,10 +196,11 @@ The erasure construction stores arbitrary quantum inputs. To witness this operat
 
 Any memory carrying only a classical record across the hold implements an entanglement-breaking channel, even if its initial measurement is joint and its classical record unlimited. Its reference-output state is separable. For a maximally entangled state of dimension $`2^k`$, every product state's squared overlap is at most $`2^{-k}`$ by Cauchy–Schwarz; convexity gives the same bound for every separable state. Thus
 
+**(I12)**
+
 ```math
 \Pr_{\mathrm{classical}}[\mathrm{Bell\ test\ passes}]
 \le2^{-k}.
-\tag{I12}
 ```
 
 The reference system belongs only to the verifier and supplies no assistance to the memory during storage. Bell-pair preparation and final Bell measurements add $`O(k)`$ verifier gates; their trusted errors must be included if this is implemented as an experiment. The memory's Clifford and inner-code costs are those charged above.
@@ -201,7 +213,7 @@ By contrast, a generic error in the spatial span can leave an unflagged coherent
 
 Calibration acquisitions are charged in [Robustness](robustness.md). In particular, testing one stationary pair procedure does not certify every member of a heterogeneous parallel array. The nonidentical-cell extensions require uniform manufacturing/parameter bounds, separately paid per-cell calibration, or another justified inference controlling the required error probabilities. For the pair task, that page supplies an explicit uniformly sampled-array protocol certifying the mean error, which is sufficient for its independent-pair concentration bound. Code and calibration records used during a payload task are independent of that task's hidden data.
 
-Positive unassisted storage rate in this exact construction requires $`\eta>1/2`$, or $`\kappa t<\ln2`$ for nonzero $`\kappa`$. This is a loss-limited finite-time memory, not an infinite-lifetime passive memory. The capacity statement and the endpoint construction make no claim that arbitrarily noisy preparation or recovery can be omitted from the resource accounting.
+Positive unassisted storage rate in this exact construction requires $`\eta>1/2`$, or $`\kappa t\lt \ln2`$ for nonzero $`\kappa`$. This is a loss-limited finite-time memory, not an infinite-lifetime passive memory. The capacity statement and the endpoint construction make no claim that arbitrarily noisy preparation or recovery can be omitted from the resource accounting.
 
 ## Resource summary
 

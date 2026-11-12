@@ -33,3 +33,19 @@ In the inspected run, the largest dark-invariance residual was below $`8.4\times
 The script does not implement an asymptotically optimal common-kernel encoder, reconstruct an actual bath, certify a device's calibration, simulate arbitrarily many cells, or validate the imported coding theorems. Those assumptions and proof dependencies are stated in [the model](../science/model.md), [capacity](../science/capacity.md), [robustness](../science/robustness.md) and [implementation](../science/implementation.md) pages.
 
 `weighted_capacity.py` and `pair_lindblad.py` contain the small-matrix primitives used by the suite. `run_all.py` is the authoritative reproduction command.
+
+## Hosted mathematical presentation
+
+The [read-only workflow](../.github/workflows/hosted-math.yml) checks the exact proposed commit on GitHub at widths of 1,440 and 760 pixels. It first probes the README's inline, display and table notation, then inventories all tracked Markdown and compares every mathematical expression with the actual hosted MathML. The comparison retains operands, relations, subscripts, fractions and meaningful token structure. HTML, screenshots, source inventories and reports are saved together for subsequent visual inspection. A separate viewport collector records unmodified native page details below GitHub's floating toolbar, including the principal capacity formula and the calibration confidence bound. These supplementary screenshots support visual review; they do not replace the full structural comparison.
+
+The collector and checker in [hosted_math/](hosted_math/) use Node.js 22, Playwright 1.56.1, MathJax 3.2.1, Python 3.10 or later, and Git. Dependencies are installed outside the source tree. To repeat a complete capture from a compatible environment, set `NODE_PATH` to those installed Node modules and run:
+
+```bash
+node verification/hosted_math/capture_hosted_math.cjs \
+  --root "$PWD" \
+  --repository GoGoKo699/Loss-Limited-Dark-Memory \
+  --revision "$(git rev-parse HEAD)" \
+  --output /tmp/loss-limited-dark-memory-hosted
+```
+
+Use a new empty output directory and an existing public commit. The workflow checks out the exact same-repository PR head without persisting credentials and grants only `contents: read`. Its captured artifacts expire after fourteen days. A successful automated comparison still requires visual inspection for layout and legibility; it does not validate the physical assumptions or analytical proofs, or guarantee future renderer behavior.

@@ -2,7 +2,7 @@
 
 The question here is how much quantum communication rate is lost when an emitter memory must avoid collective loss in a supplied profile span while also undergoing independent local loss. Dark subspaces, amplitude-damping capacity, concatenated protection, and channel-uncertainty coding are established ingredients. The result developed in this repository concerns their particular combination: a uniform, finite capacity penalty controlled by the number of supplied collective lowering profiles.
 
-The [model](model.md) defines $`B`$ emitters, $`r`$ linearly independent profiles, their common kernel $`K_G`$, and homogeneous independent amplitude damping with survival probability $`\eta`$. For fixed $`1/2<\eta<1`$, the [capacity account](capacity.md) proves
+The [model](model.md) defines $`B`$ emitters, $`r`$ linearly independent profiles, their common kernel $`K_G`$, and homogeneous independent amplitude damping with survival probability $`\eta`$. For fixed $`1/2\lt \eta\lt 1`$, the [capacity account](capacity.md) proves
 
 ```math
 B Q_{\mathrm{AD}}(\eta)-c_\eta r
@@ -26,10 +26,10 @@ This repository inherits that common-kernel model and injection. The new algebra
 
 ```math
 Z_{K_G}(z)
-=\operatorname{Tr}(P_{K_G}z^{\widehat N})
+=\mathrm{Tr}(P_{K_G}z^{\widehat N})
 \;\geq\;
 (1+z)^B(1-z)^r,
-\qquad 0<z<1.
+\qquad 0\lt z\lt 1.
 ```
 
 The earlier dimension bound can already be combined with an amplitude-damping thinning argument to achieve the asymptotic independent-loss benchmark when $`r=o(B)`$. That route bounds the capacity deficit by $`B-\log_2\dim K_G`$. Consequently, asymptotic benchmark matching alone does not require the weighted refinement. The refinement improves the finite penalty to $`O_\eta(r)`$ and yields the matched noisy rank law. It controls the weight of the capacity-optimal Bernoulli product input in the dark space; that input is not generally maximally mixed.
@@ -67,7 +67,7 @@ The new comparison concerns a restriction of the input alphabet of a product amp
 
 The weighted dark Gibbs state has a relative-entropy cost of at most $`c_\eta r`$ compared with the capacity-optimal Bernoulli product input. Expanding coherent information around that product input makes the mean-excitation term vanish at the optimal population. Data processing then converts the weighted-kernel bound into the finite capacity penalty. The entropy identities and data-processing inequality are standard; the particular dark-input bound and its noisy rank consequence are the contribution.
 
-The comparison with ideal storage has a precise scope. At $`\eta=1`$, worst-profile dark redundancy is of order $`r\log(B/r)`$ in the sublinear-rank regime. At each fixed $`1/2<\eta<1`$, the penalty relative to the corresponding local-loss benchmark is of order $`r`$. The benchmarks differ, $`c_\eta`$ diverges as $`\eta`$ approaches one, and this does not assert that adding noise increases absolute capacity.
+The comparison with ideal storage has a precise scope. At $`\eta=1`$, worst-profile dark redundancy is of order $`r\log(B/r)`$ in the sublinear-rank regime. At each fixed $`1/2\lt \eta\lt 1`$, the penalty relative to the corresponding local-loss benchmark is of order $`r`$. The benchmarks differ, $`c_\eta`$ diverges as $`\eta`$ approaches one, and this does not assert that adding noise increases absolute capacity.
 
 ## 3. Correlated-damping capacity papers use different channels
 
