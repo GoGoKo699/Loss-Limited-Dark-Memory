@@ -79,7 +79,7 @@ R_{\mathrm{erase}}
 =\frac{\log_2d}{B}\max\{0,2\eta-1\}.
 ```
 
-For an elementary binary implementation choose $`d=2^\ell\le B-r`$, with $`\ell=\lfloor\log_2(B-r)\rfloor`$. Each cell then carries $`\ell`$ outer-code qubits, all erased together on a loss. A selected smaller power of two is also allowed. When $`B-r<2`$, this construction has no nontrivial logical cell. It makes no claim of positive rate at those parameters merely from the presence of a one-dimensional dark state.
+For an elementary binary implementation choose $`d=2^\ell\le B-r`$, with $`\ell=\lfloor\log_2(B-r)\rfloor`$. Each cell then carries $`\ell`$ outer-code qubits, all erased together on a loss. A selected smaller power of two is also allowed. When $`B-r\lt 2`$, this construction has no nontrivial logical cell. It makes no claim of positive rate at those parameters merely from the presence of a one-dimensional dark state.
 
 ## 4. An explicit three-emitter qubit
 
@@ -134,7 +134,7 @@ At $`\eta=0.9`$, (I5) is $`0.8/3=0.2666\ldots`$ logical qubits per physical emit
 
 For completeness, a direct random-stabilizer argument gives a constructive coding guarantee and its decoder costs. It avoids relying on an unproved efficient decoder for a general amplitude-damping channel.
 
-Use $`m`$ independent erasure cells of dimension $`d=2^\ell`$. Put $`n=m\ell`$ for the number of binary outer-code carriers before their inner embedding, and let $`k`$ be the unknown logical-qubit payload. Let the loss probability of each cell be at most $`\lambda<1/2`$, with losses independent of the payload and independent across cells. The cell channels may be nonidentical, provided they remain exact flagged erasure channels with this uniform upper bound.
+Use $`m`$ independent erasure cells of dimension $`d=2^\ell`$. Put $`n=m\ell`$ for the number of binary outer-code carriers before their inner embedding, and let $`k`$ be the unknown logical-qubit payload. Let the loss probability of each cell be at most $`\lambda\lt 1/2`$, with losses independent of the payload and independent across cells. The cell channels may be nonidentical, provided they remain exact flagged erasure channels with this uniform upper bound.
 
 Sample a uniform $`[[n,k]]`$ stabilizer code by conjugating a standard stabilizer with a uniform Clifford. Its classical description and the random seed are independent of the current payload. A uniformly random symplectic basis can be sampled by sequential linear algebra over $`\mathbb F_2`$; the stabilizer and a Clifford encoding circuit can be stored and operated in polynomial time.
 
@@ -157,7 +157,7 @@ Let $`R=k/m`$ be the number of logical qubits per cell. Choose any $`a>0`$ such 
 **(I10)**
 
 ```math
-R<\ell\,[1-2(\lambda+a)].
+R\lt \ell\,[1-2(\lambda+a)].
 ```
 
 An exponential-moment bound for the independent loss flags, followed by (I9), gives
@@ -173,7 +173,7 @@ An exponential-moment bound for the independent loss flags, followed by (I9), gi
 
 For nonidentical loss probabilities at most $`\lambda`$, their moment generating function is bounded by that of a binomial variable with parameters $`m,\lambda`$, giving the same first term. Correctable patterns recover every logical state exactly, including its entanglement with a reference, so the average entanglement fidelity is at least $`1-\epsilon_m`$.
 
-Every $`R<\ell(1-2\lambda)`$ admits an $`a`$ satisfying (I10), proving the rate (I5) for binary cells. Markov's inequality also shows that all but at most a $`\sqrt{\epsilon_m}`$ fraction of sampled codes have failure probability at most $`\sqrt{\epsilon_m}`$. Thus this is an efficiently sampled and operated code ensemble with an exponentially improving performance guarantee. The argument does not give a polynomial certificate that a particular sampled code is good for every likely erasure pattern; it supplies an average guarantee and the stated high-probability conclusion.
+Every $`R\lt \ell(1-2\lambda)`$ admits an $`a`$ satisfying (I10), proving the rate (I5) for binary cells. Markov's inequality also shows that all but at most a $`\sqrt{\epsilon_m}`$ fraction of sampled codes have failure probability at most $`\sqrt{\epsilon_m}`$. Thus this is an efficiently sampled and operated code ensemble with an exponentially improving performance guarantee. The argument does not give a polynomial certificate that a particular sampled code is good for every likely erasure pattern; it supplies an average guarantee and the stated high-probability conclusion.
 
 ### Encoding and recovery operations
 
@@ -213,7 +213,7 @@ By contrast, a generic error in the spatial span can leave an unflagged coherent
 
 Calibration acquisitions are charged in [Robustness](robustness.md). In particular, testing one stationary pair procedure does not certify every member of a heterogeneous parallel array. The nonidentical-cell extensions require uniform manufacturing/parameter bounds, separately paid per-cell calibration, or another justified inference controlling the required error probabilities. For the pair task, that page supplies an explicit uniformly sampled-array protocol certifying the mean error, which is sufficient for its independent-pair concentration bound. Code and calibration records used during a payload task are independent of that task's hidden data.
 
-Positive unassisted storage rate in this exact construction requires $`\eta>1/2`$, or $`\kappa t<\ln2`$ for nonzero $`\kappa`$. This is a loss-limited finite-time memory, not an infinite-lifetime passive memory. The capacity statement and the endpoint construction make no claim that arbitrarily noisy preparation or recovery can be omitted from the resource accounting.
+Positive unassisted storage rate in this exact construction requires $`\eta>1/2`$, or $`\kappa t\lt \ln2`$ for nonzero $`\kappa`$. This is a loss-limited finite-time memory, not an infinite-lifetime passive memory. The capacity statement and the endpoint construction make no claim that arbitrarily noisy preparation or recovery can be omitted from the resource accounting.
 
 ## Resource summary
 

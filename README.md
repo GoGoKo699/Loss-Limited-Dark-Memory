@@ -8,7 +8,7 @@ A common dark subspace can remove collective emission while independent local lo
 
 Let $`B`$ two-level emitters experience $`r`$ independent collective lowering profiles. Restrict storage inputs to their common kernel. All emitters count toward the rate, and encoding and decoding occur only at the boundaries of the storage interval. Independent local amplitude damping has the same excited-state survival $`\eta`$ on every emitter.
 
-For each fixed $`1/2<\eta<1`$, the capacity of one such cell satisfies
+For each fixed $`1/2\lt \eta\lt 1`$, the capacity of one such cell satisfies
 
 ```math
 BQ_{\mathrm{AD}}(\eta)-c_\eta r

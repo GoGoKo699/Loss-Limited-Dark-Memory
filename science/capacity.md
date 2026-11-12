@@ -26,7 +26,7 @@ with entropy values at zero and one defined by continuity. The ordinary amplitud
 Q_{\mathrm{AD}}(\eta)
 =\begin{cases}
 0,&0\le\eta\le1/2,\\
-\displaystyle\max_{0\le p\le1}f_\eta(p),&1/2<\eta\le1.
+\displaystyle\max_{0\le p\le1}f_\eta(p),&1/2\lt \eta\le1.
 \end{cases}
 ```
 
@@ -69,16 +69,16 @@ Coherent information of a degradable channel is concave in the input. Indeed, an
 
 ### The optimizer lies below half excitation
 
-**Lemma 1.** For every $`1/2<\eta<1`$, $`f_\eta`$ has a unique maximizer $`p_\eta\in(0,1/2)`$.
+**Lemma 1.** For every $`1/2\lt \eta\lt 1`$, $`f_\eta`$ has a unique maximizer $`p_\eta\in(0,1/2)`$.
 
-**Proof.** Direct differentiation on $`0<p<1`$ gives
+**Proof.** Direct differentiation on $`0\lt p\lt 1`$ gives
 
 **(C5)**
 
 ```math
 f_\eta''(p)
 =-\frac{2\eta-1}
-{(\ln2)\,p(1-\eta p)(1-(1-\eta)p)}<0.
+{(\ln2)\,p(1-\eta p)(1-(1-\eta)p)}\lt 0.
 ```
 
 The derivative tends to $`+\infty`$ as $`p\downarrow0`$. To locate its sign at $`p=1/2`$, define
@@ -95,10 +95,10 @@ Then $`f_\eta'(1/2)=g(\eta)/\ln2`$, while $`g(1/2)=g(1)=0`$ by continuous extens
 g''(\eta)
 =\frac{4(2\eta-1)(\eta^2-\eta+1)}
 {\eta(1-\eta)(2-\eta)^2(1+\eta)^2}>0
-\quad(1/2<\eta<1).
+\quad(1/2\lt \eta\lt 1).
 ```
 
-Strict convexity gives $`g(\eta)<0`$ between its two zero endpoints. Thus the strictly decreasing $`f_\eta'`$ has one zero before $`1/2`$, proving the claim. $`\square`$
+Strict convexity gives $`g(\eta)\lt 0`$ between its two zero endpoints. Thus the strictly decreasing $`f_\eta'`$ has one zero before $`1/2`$, proving the claim. $`\square`$
 
 For the remainder of the positive-capacity theorem put
 
@@ -111,7 +111,7 @@ c_\eta=-\log(1-z_\eta)
 =\log\frac{1-p_\eta}{1-2p_\eta}.
 ```
 
-At fixed $`1/2<\eta<1`$, this is a finite positive constant depending only on the independent-loss level.
+At fixed $`1/2\lt \eta\lt 1`$, this is a finite positive constant depending only on the independent-loss level.
 
 ## 2. The restricted channel remains degradable
 
@@ -160,7 +160,7 @@ This comparison does not constrain unrestricted encodings for the full collectiv
 
 The following identity avoids converting a sublinear relative-entropy deficit into a weaker trace-distance estimate.
 
-**Lemma 2.** Let $`0<\eta<1`$, $`0<p<1`$, and let $`\rho`$ be any $`B`$-qubit state. Write
+**Lemma 2.** Let $`0\lt \eta\lt 1`$, $`0\lt p\lt 1`$, and let $`\rho`$ be any $`B`$-qubit state. Write
 
 ```math
 \mu=\mathrm{Tr}(\rho\widehat N),\quad
@@ -181,7 +181,7 @@ I_c(\rho,\mathcal A_\eta^{\otimes B})
 \end{aligned}
 ```
 
-**Proof.** For any state $`\sigma`$ and any $`0<q<1`$,
+**Proof.** For any state $`\sigma`$ and any $`0\lt q\lt 1`$,
 
 **(C10)**
 
@@ -215,7 +215,7 @@ No assumption about the actual mean excitation of $`\rho`$ is needed in (C11).
 
 ## 4. A finite bound for every profile
 
-**Theorem 3 — Finite capacity penalty.** For every rank-$`r`$ profile matrix $`G\in\mathbb C^{r\times B}`$ and fixed $`1/2<\eta<1`$,
+**Theorem 3 — Finite capacity penalty.** For every rank-$`r`$ profile matrix $`G\in\mathbb C^{r\times B}`$ and fixed $`1/2\lt \eta\lt 1`$,
 
 **(C12)**
 
@@ -250,7 +250,7 @@ The qualitative limit also follows from the inherited unweighted dimension defic
 =\mathcal A_{2p_\eta}^{\otimes B}(P_G/d_G).
 ```
 
-This is a valid dark-supported state because $`0<2p_\eta<1`$ and homogeneous amplitude damping preserves the common kernel. The same attenuation maps $`(I/2)^{\otimes B}`$ to $`\tau_{p_\eta}^{\otimes B}`$. Consequently data processing gives
+This is a valid dark-supported state because $`0\lt 2p_\eta\lt 1`$ and homogeneous amplitude damping preserves the common kernel. The same attenuation maps $`(I/2)^{\otimes B}`$ to $`\tau_{p_\eta}^{\otimes B}`$. Consequently data processing gives
 
 ```math
 D(\widetilde\rho_G\|\tau_{p_\eta}^{\otimes B})
@@ -332,7 +332,7 @@ The profile class explicitly permits the zero coefficients outside these disjoin
 
 For all $`r\le B`$, an alternative admissible example uses $`r`$ independent single-site lowering profiles. Its common kernel fixes those $`r`$ emitters in their ground states and again gives (C16). This extends the lower deficit bound to the whole rank range.
 
-**Corollary 5 — Sharp noisy rank order.** For every $`1\le r\le B`$ and fixed $`1/2<\eta<1`$,
+**Corollary 5 — Sharp noisy rank order.** For every $`1\le r\le B`$ and fixed $`1/2\lt \eta\lt 1`$,
 
 **(C18)**
 
@@ -359,7 +359,7 @@ The three regimes should be kept separate.
 | Local survival | Dark-input capacity and worst-profile statement |
 | --- | --- |
 | $`0\le\eta\le1/2`$ | Every restricted channel is antidegradable; $`Q_{\mathrm{dark}}=0`$. |
-| Fixed $`1/2<\eta<1`$ | Equations (C12) and (C18) give the finite linear-rank penalty. |
+| Fixed $`1/2\lt \eta\lt 1`$ | Equations (C12) and (C18) give the finite linear-rank penalty. |
 | $`\eta=1`$ | The restricted channel is noiseless on $`\mathcal K_G`$; $`Q_{\mathrm{dark}}(G,1)=\log\dim\mathcal K_G`$. |
 
 At the noiseless endpoint, the inherited dimension law in [the weighted-kernel account](weighted-kernel.md#4-relation-to-the-noiseless-dimension-law) gives

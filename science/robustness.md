@@ -6,7 +6,7 @@ The exact dark-space reduction survives arbitrary uncertainty in the coefficient
 
 ## 1. What must be stable
 
-Fix a cell size $`B`$, a nominal profile matrix $`G`$ of row rank $`r`$, a storage time $`t`$, and $`1/2<\eta=e^{-\kappa t}<1`$. Let $`V_G`$ embed an abstract input space of dimension $`d_G=\dim\mathcal K_G`$ into the nominal common dark space. The ideal cell channel is
+Fix a cell size $`B`$, a nominal profile matrix $`G`$ of row rank $`r`$, a storage time $`t`$, and $`1/2\lt \eta=e^{-\kappa t}\lt 1`$. Let $`V_G`$ embed an abstract input space of dimension $`d_G=\dim\mathcal K_G`$ into the nominal common dark space. The ideal cell channel is
 
 **(R1)**
 

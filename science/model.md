@@ -98,7 +98,7 @@ In particular its orthogonal projector $`P_G`$ commutes with $`\widehat N`$.
 
 for all indices. Consequently every product $`a_S=\prod_{j\in S}a_j`$ preserves the common kernel. Lemma 1 shows that every function of $`\widehat N`$ also preserves it.
 
-For $`0<\eta<1`$, a product Kraus operator of the independent amplitude-damping channel, indexed by the set $`S`$ of emitters that lose an excitation, can be written
+For $`0\lt \eta\lt 1`$, a product Kraus operator of the independent amplitude-damping channel, indexed by the set $`S`$ of emitters that lose an excitation, can be written
 
 **(M6)**
 

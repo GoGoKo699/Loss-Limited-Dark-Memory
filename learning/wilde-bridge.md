@@ -137,15 +137,15 @@ This is a restricted-support statement. The collective and local generators need
 
 ## 5. The missing counting step: weight excitations
 
-For the capacity argument below, fix $`1/2<\eta<1`$.
+For the capacity argument below, fix $`1/2\lt \eta\lt 1`$.
 
-The dimension $`\dim K_G`$ is the natural count for noiseless storage. With amplitude damping, the capacity-optimal product input favors an excited-state population $`p_\eta<1/2`$. A useful count must reflect that unequal weighting.
+The dimension $`\dim K_G`$ is the natural count for noiseless storage. With amplitude damping, the capacity-optimal product input favors an excited-state population $`p_\eta\lt 1/2`$. A useful count must reflect that unequal weighting.
 
 Write $`d_k`$ for the dimension of the dark space in excitation sector $`k`$ and introduce
 
 ```math
 Z_G(z)=\sum_{k=0}^{B}d_kz^k,
-\qquad 0<z<1.
+\qquad 0\lt z\lt 1.
 ```
 
 The weight $`z^k`$ favors lower-excitation sectors. The [weighted-kernel theorem](../science/weighted-kernel.md) proves
@@ -235,7 +235,7 @@ Q_{\mathrm{dark}}(G,\eta)&\le BQ_{\mathrm{AD}}(\eta).
 
 The upper bound compares dark-input encodings with unrestricted product amplitude damping. It does not upper-bound every encoding for the full physical dissipator.
 
-The finite penalty is the important refinement. The earlier dimension bound, combined with amplitude-damping thinning, already achieves asymptotic benchmark matching for $`r=o(B)`$. The weighted argument improves the uniform finite cost to order $`r`$ at fixed $`1/2<\eta<1`$; the [matching profiles](../science/capacity.md#5-a-matching-family-of-collective-modes) show that this order cannot be improved uniformly.
+The finite penalty is the important refinement. The earlier dimension bound, combined with amplitude-damping thinning, already achieves asymptotic benchmark matching for $`r=o(B)`$. The weighted argument improves the uniform finite cost to order $`r`$ at fixed $`1/2\lt \eta\lt 1`$; the [matching profiles](../science/capacity.md#5-a-matching-family-of-collective-modes) show that this order cannot be improved uniformly.
 
 At zero local loss, the worst dark-dimension penalty instead has order $`r\log(B/r)`$ for $`1\le r=o(B)`$. The constant $`c_\eta`$ diverges as $`\eta`$ approaches one, so these statements have different limits. A smaller penalty relative to a noisy benchmark does not mean that noise increases absolute capacity.
 
@@ -264,6 +264,6 @@ Confidence also belongs in the final guarantee. A calibration certificate with f
 
 The ideal collective protection applies during the hold. Fixed endpoint gate counts do not establish accurate gates under unbounded always-on decay; protected boundary windows or certified boundary channels are assumed and charged. Likewise, arbitrary drift of a misaligned bright direction differs from a fixed static error. Unknown vacuum–dark phase, unequal local loss, heating, and cross-cell reservoirs require their stated separate treatment.
 
-Finally, local loss still limits storage time. Positive unassisted dark-input capacity requires $`\eta>1/2`$, or $`\kappa t<\ln2`$ when $`\eta=e^{-\kappa t}`$ and $`\kappa>0`$. The achievement is a loss-limited memory whose collective constraints have a controlled capacity cost, together with explicit useful constructions under declared imperfections.
+Finally, local loss still limits storage time. Positive unassisted dark-input capacity requires $`\eta>1/2`$, or $`\kappa t\lt \ln2`$ when $`\eta=e^{-\kappa t}`$ and $`\kappa>0`$. The achievement is a loss-limited memory whose collective constraints have a controlled capacity cost, together with explicit useful constructions under declared imperfections.
 
 For the complete scientific route, continue from [the model](../science/model.md) through [weighted counting](../science/weighted-kernel.md) and [capacity](../science/capacity.md), then compare [robustness](../science/robustness.md), [implementation](../science/implementation.md), and [the operational task](../science/operational-advantage.md). The [prior-work account](../science/prior-work.md) separates inherited ingredients from the finite rank-dependent refinement.

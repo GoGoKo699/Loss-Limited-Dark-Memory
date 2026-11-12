@@ -146,7 +146,7 @@ It is independent of the collective strength and of the bright phase accumulated
 **(O12)**
 
 ```math
-|g_j-g_0|\le\delta|g_0|,\qquad j=1,2,\qquad 0\le\delta<1.
+|g_j-g_0|\le\delta|g_0|,\qquad j=1,2,\qquad 0\le\delta\lt 1.
 ```
 
 Then $`b\le\delta^2`$, and the bound is attainable.
@@ -243,7 +243,7 @@ D_2(a\|b)=a\log_2\frac ab
  +(1-a)\log_2\frac{1-a}{1-b}.
 ```
 
-**Theorem 2 — Classical retained-record bound.** Every classical-memory strategy allowed in Section 1 satisfies, for $`0\le\alpha<\gamma_*`$,
+**Theorem 2 — Classical retained-record bound.** Every classical-memory strategy allowed in Section 1 satisfies, for $`0\le\alpha\lt \gamma_*`$,
 
 **(O20)**
 
@@ -258,7 +258,7 @@ This is an admissible identical-answer BB84 monogamy-game strategy, even though 
 
 The threshold and asymptotic exponent are sharp for this comparator: independent Breidbart measurements give a classical error rate $`\gamma_*`$ and the corresponding binomial lower-tail exponent. Our result imports this bound; the new physical calculation concerns how the passive pair stays below its threshold.
 
-For independent quantum cells with bit-error probabilities $`p_i\le p_*<\alpha`$, the ordinary exponential-moment bound gives
+For independent quantum cells with bit-error probabilities $`p_i\le p_*\lt \alpha`$, the ordinary exponential-moment bound gives
 
 **(O21)**
 
@@ -275,7 +275,7 @@ Together, (O20)–(O21) give an exponentially reliable quantum-versus-classical 
 **(O22)**
 
 ```math
-p_*<\alpha<\gamma_*.
+p_*\lt \alpha\lt \gamma_*.
 ```
 
 ## 6. An endpoint-inclusive finite working point
@@ -299,7 +299,7 @@ Equation (O15) gives
 ```math
 p_0=0.05148259198\ldots,
 \qquad
-p_*=0.08148259198\ldots<0.10<\gamma_*.
+p_*=0.08148259198\ldots\lt 0.10\lt \gamma_*.
 ```
 
 Writing the binary relative entropy in natural logarithms as $`D_e=(\ln2)D_2`$,
@@ -342,7 +342,7 @@ while the magnitude bound is unchanged. Substitution in (O14) gives the correspo
 
 The direction of $`g`$ is static during each hold in the exact calculation. Bounds on its total variation can instead enter a perturbation budget, but an arbitrarily drifting direction is not covered by the geometric argument alone. Generic frequency disorder, thermal excitation, nonuniform independent damping, and intercell reservoirs also require their own declared error bounds.
 
-Finally, nonzero independent loss sets a finite storage horizon. In the exact dark-input capacity model, positive unassisted capacity requires $`\eta>1/2`$, equivalently $`\kappa t<\ln2`$ for $`\kappa>0`$. The explicit uncoded pair task imposes its stronger score requirement (O22). No infinite-time or self-correcting-memory claim follows from removing collective decay.
+Finally, nonzero independent loss sets a finite storage horizon. In the exact dark-input capacity model, positive unassisted capacity requires $`\eta>1/2`$, equivalently $`\kappa t\lt \ln2`$ for $`\kappa>0`$. The explicit uncoded pair task imposes its stronger score requirement (O22). No infinite-time or self-correcting-memory claim follows from removing collective decay.
 
 ## Primary references for the comparator
 

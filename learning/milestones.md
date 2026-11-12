@@ -122,11 +122,11 @@ The allocation is **12 background/preliminary milestones and 18 narrative/innova
 
 **Central question.** Why is the capacity-optimal input of a locally damped qubit biased toward the ground state?
 
-**Understanding target.** Phase covariance and concavity permit an optimal diagonal input with excited population $`p`$. Its coherent information is $`f_\eta(p)=h_2(\eta p)-h_2((1-\eta)p)`$. At every fixed $`1/2<\eta<1`$, the project proves a unique optimizer $`p_\eta\in(0,1/2)`$ with $`f_\eta'(p_\eta)=0`$. The noiseless maximally mixed input is therefore not the appropriate finite-loss reference.
+**Understanding target.** Phase covariance and concavity permit an optimal diagonal input with excited population $`p`$. Its coherent information is $`f_\eta(p)=h_2(\eta p)-h_2((1-\eta)p)`$. At every fixed $`1/2\lt \eta\lt 1`$, the project proves a unique optimizer $`p_\eta\in(0,1/2)`$ with $`f_\eta'(p_\eta)=0`$. The noiseless maximally mixed input is therefore not the appropriate finite-loss reference.
 
 **Dependencies and story role.** M04 and M06–M09 supply damping, entropy, degradability, and capacity. This milestone locates the population around which the dark-space comparison must be organized.
 
-**Conceptual connection.** The strict inequality $`p_\eta<1/2`$ makes the excitation weight $`z_\eta=p_\eta/(1-p_\eta)`$ less than one. Stationarity at $`p_\eta`$ will cancel a mean-excitation correction in the main proof.
+**Conceptual connection.** The strict inequality $`p_\eta\lt 1/2`$ makes the excitation weight $`z_\eta=p_\eta/(1-p_\eta)`$ less than one. Stationarity at $`p_\eta`$ will cancel a mean-excitation correction in the main proof.
 
 **Source pointers.** [Wilde v8][wilde], §24.7.2; [Capacity](../science/capacity.md), §1, Lemma 1, and (C5)–(C6).
 
@@ -196,7 +196,7 @@ The allocation is **12 background/preliminary milestones and 18 narrative/innova
 
 **Central question.** What changes when dark vectors are counted according to their excitation instead of all receiving equal weight?
 
-**Understanding target.** The partition function $`Z_G(z)=\sum_k d_kz^k`$ weights each excitation sector. Multiplying the sector inequality by $`z^k`$ and summing introduces one convergent geometric series for each independent lowering profile. For $`0<z<1`$ this gives
+**Understanding target.** The partition function $`Z_G(z)=\sum_k d_kz^k`$ weights each excitation sector. Multiplying the sector inequality by $`z^k`$ and summing introduces one convergent geometric series for each independent lowering profile. For $`0\lt z\lt 1`$ this gives
 
 ```math
 Z_G(z)\ge(1+z)^B(1-z)^r.
@@ -244,7 +244,7 @@ Here $`\mu`$ is the actual input's mean excitation, and $`D_Y,D_E`$ are its outp
 
 **Central question.** What operational rate follows from the weighted input's coherent information?
 
-**Understanding target.** Fix $`1/2<\eta<1`$. Degradability survives the isometric dark-input restriction, so the restricted channel's capacity is its maximum single-letter coherent information. Combining M17–M18 with that fact gives
+**Understanding target.** Fix $`1/2\lt \eta\lt 1`$. Degradability survives the isometric dark-input restriction, so the restricted channel's capacity is its maximum single-letter coherent information. Combining M17–M18 with that fact gives
 
 ```math
 \max\{0,BQ_{\mathrm{AD}}(\eta)-c_\eta r\}
@@ -276,7 +276,7 @@ Here $`c_\eta=-\log_2(1-z_\eta)`$. The upper bound follows because every dark-in
 
 **Central question.** How can the noisy penalty be linear in rank while noiseless dark-space redundancy contains an extra logarithm?
 
-**Understanding target.** At $`\eta=1`$ the capacity is $`\log_2\dim\mathcal K_G`$ and the inherited worst-profile deficit is $`\Theta(r\log(B/r))`$ for $`1\le r=o(B)`$. At each fixed $`1/2<\eta<1`$, the benchmark and its optimal population differ, giving the linear noisy law. As $`\eta\to1`$, $`p_\eta\to1/2`$ and $`c_\eta`$ diverges, so the bound is not uniform in that limit. Ordinary local loss still imposes the finite positive-capacity horizon $`\kappa t<\ln2`$.
+**Understanding target.** At $`\eta=1`$ the capacity is $`\log_2\dim\mathcal K_G`$ and the inherited worst-profile deficit is $`\Theta(r\log(B/r))`$ for $`1\le r=o(B)`$. At each fixed $`1/2\lt \eta\lt 1`$, the benchmark and its optimal population differ, giving the linear noisy law. As $`\eta\to1`$, $`p_\eta\to1/2`$ and $`c_\eta`$ diverges, so the bound is not uniform in that limit. Ordinary local loss still imposes the finite positive-capacity horizon $`\kappa t\lt \ln2`$.
 
 **Dependencies and story role.** M10 and M19–M20 provide the biased optimizer and the noisy rank law. This milestone reconciles the global conclusion with the noiseless dimension theorem and finite-cell continuity.
 
@@ -398,7 +398,7 @@ The corresponding achievable physical rate is $`(2\eta-1)\log_2d/B`$ when $`\eta
 
 **Central question.** What useful passive-memory advantage is established when the capacity, uncertainty, and implementation statements are read together?
 
-**Understanding target.** At fixed homogeneous local survival $`1/2<\eta<1`$, arbitrary supplied rank-$`r`$ collective dark constraints impose a worst-profile capacity deficit of order $`r`$ relative to the local-loss benchmark. A fixed-cell uncertainty neighborhood supports a common code, while exact single-excitation cells and the robust pair task provide separate constructive operational guarantees. The weighted finite penalty is the specific quantitative refinement; dark states, amplitude-damping capacity, compound coding, and the classical BB84 bound are attributed ingredients.
+**Understanding target.** At fixed homogeneous local survival $`1/2\lt \eta\lt 1`$, arbitrary supplied rank-$`r`$ collective dark constraints impose a worst-profile capacity deficit of order $`r`$ relative to the local-loss benchmark. A fixed-cell uncertainty neighborhood supports a common code, while exact single-excitation cells and the robust pair task provide separate constructive operational guarantees. The weighted finite penalty is the specific quantitative refinement; dark states, amplitude-damping capacity, compound coding, and the classical BB84 bound are attributed ingredients.
 
 **Dependencies and story role.** M13–M29 assemble the mechanism, proof, matching examples, noise limits, calibration costs, endpoints, and classical comparison. This final milestone integrates the narrative into one scoped scientific account.
 

@@ -17,7 +17,7 @@ Z_G(z)=\mathrm{Tr}(P_Gz^{\widehat N})
 
 ## 1. Weighted common-kernel theorem
 
-**Theorem 1.** For every $`0<z<1`$,
+**Theorem 1.** For every $`0\lt z\lt 1`$,
 
 **(W2)**
 
@@ -90,7 +90,7 @@ Z_G(z)\sum_{\alpha\in\mathbb N_0^r}z^{|\alpha|}\\
 \end{aligned}
 ```
 
-The last series converges because $`z<1`$. Rearranging proves (W2). For $`r=0`$, the only multi-index is empty and every map is the identity. $`\square`$
+The last series converges because $`z\lt 1`$. Rearranging proves (W2). For $`r=0`$, the only multi-index is empty and every map is the identity. $`\square`$
 
 The proof is a graded refinement of the nilpotent injection in [Multimode Dark Memory](https://github.com/GoGoKo699/Multimode-Dark-Memory/blob/f7ef50082452c7b29c66322ca51e9cf6b0f5b1eb/science/rank-law.md). The injection is inherited; the weighted partition-function consequence is what is needed for the noisy capacity bound. Constructing all components of $`T_k`$ is not assumed to be an efficient encoder.
 
@@ -124,7 +124,7 @@ Since $`1-z>0`$, iteration is valid and gives $`Z_r(z)\ge(1-z)^rZ_0(z)=(1-z)^r(1
 
 ## 2. A dark input close in relative entropy to a product input
 
-For $`0<p<1/2`$, define
+For $`0\lt p\lt 1/2`$, define
 
 ```math
 \tau_p=(1-p)|0\rangle\langle0|+p|1\rangle\langle1|,
@@ -181,7 +181,7 @@ w_G(p)=\mathrm{Tr}(P_G\tau_p^{\otimes B})
 \ge(1-z)^r,
 ```
 
-and the conditioning costs at most $`-\log w_G(p)`$ information bits. At fixed $`p<1/2`$, this cost is linear in the number of profiles and independent of the number of emitters per profile.
+and the conditioning costs at most $`-\log w_G(p)`$ information bits. At fixed $`p\lt 1/2`$, this cost is linear in the number of profiles and independent of the number of emitters per profile.
 
 ## 3. Why the excitation weight matters
 
@@ -195,7 +195,7 @@ d_k=\binom Bk-\binom B{k-1}
 \qquad d_k=0\quad(k>\lfloor B/2\rfloor),
 ```
 
-where $`\binom B{-1}=0`$. Put $`m=\lfloor B/2\rfloor`$ and let $`X\sim\mathrm{Bin}(B,p)`$, with $`p=z/(1+z)<1/2`$. Then
+where $`\binom B{-1}=0`$. Put $`m=\lfloor B/2\rfloor`$ and let $`X\sim\mathrm{Bin}(B,p)`$, with $`p=z/(1+z)\lt 1/2`$. Then
 
 **(W10)**
 
@@ -207,7 +207,7 @@ where $`\binom B{-1}=0`$. Put $`m=\lfloor B/2\rfloor`$ and let $`X\sim\mathrm{Bi
 
 Both probabilities tend to one because the mean lies strictly below $`B/2`$. Thus the one-profile factor $`1-z`$ is attained asymptotically at the partition-function level. Disjoint large uniform groups give the corresponding product factor for any fixed number of groups. This does not by itself determine the exact capacity deficit of those groups.
 
-The distinction from the unweighted count is useful: an amplitude-damping-optimal product input has $`p<1/2`$ at every fixed nonzero loss below the antidegradability threshold. It places its typical weight below the half-excitation boundary. The dark-space restriction then removes a bounded amount of relative-entropy weight per collective profile.
+The distinction from the unweighted count is useful: an amplitude-damping-optimal product input has $`p\lt 1/2`$ at every fixed nonzero loss below the antidegradability threshold. It places its typical weight below the half-excitation boundary. The dark-space restriction then removes a bounded amount of relative-entropy weight per collective profile.
 
 ## 4. Relation to the noiseless dimension law
 
