@@ -1,0 +1,19 @@
+# Loss-Limited Dark Memory
+
+This repository studies passive storage in the common kernel of arbitrary collective lowering profiles while homogeneous independent amplitude damping remains. The main result is a finite O(r) loss of dark-input cell capacity relative to B ordinary amplitude-damping channels, with a matching worst-profile lower bound at fixed survival 1/2<eta<1.
+
+## Authoritative routes
+
+- Scientific overview: README.md and science/README.md.
+- Physical generators, passive interval, input restriction and operational limit: science/model.md.
+- Excitation-graded injection and weighted partition bound: science/weighted-kernel.md.
+- Relative-entropy identity, optimized coherent information and matched noisy rank law: science/capacity.md.
+- One common encoder and decoder under fixed-cell uncertainty: science/robustness.md.
+- Efficient erasure endpoints, calibration acquisition and charged resources: science/implementation.md.
+- Two-emitter delayed-basis retrieval, classical comparator and finite error budget: science/operational-advantage.md.
+- Attribution and model-level comparisons: science/prior-work.md and references/README.md.
+- Reproduction, numerical scope and committed diagnostics: verification/README.md and verification/results.json.
+
+## Essential distinctions
+
+The capacity converse applies to the dark-input architecture, not the unrestricted physical channel. The local-loss benchmark changes with eta; no noise-induced increase in absolute capacity is claimed. The finite-loss constant diverges toward the noiseless limit. High-rate coding is information theoretic; the efficient erasure construction has a different rate and narrower exact-symmetry assumptions. The compound theorem concerns one unknown fixed channel repeated independently. The pair robustness formula assumes a static direction during storage and separately budgeted boundary control. All physical storage emitters count, and no external noiseless quantum memory bypass is allowed.
