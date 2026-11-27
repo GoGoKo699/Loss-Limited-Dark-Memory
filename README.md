@@ -27,6 +27,14 @@ Here $`Q_{\mathrm{AD}}`$ is the ordinary qubit amplitude-damping capacity, and $
 
 The mathematical step is an excitation-weighted count of the common kernel. A relative-entropy identity converts that count into coherent information at the capacity-optimal excitation population. [The proof route](science/README.md) connects those two statements.
 
+## Store and recover with a loss flag
+
+1. **Encode.** For the supplied uniform collective profile on each independent three-emitter cell, [sample the outer stabilizer code](science/implementation.md#encoding-and-recovery-operations), initialize its redundancy and apply the Clifford encoder to the unknown input. In each cell, put one encoded qubit on emitter 1 and initialize emitters 2 and 3 to zero. Apply X on emitter 2, CNOT from emitter 1 to 2, then SWAP emitters 1 and 2. Apply the two [number-preserving rotations](science/implementation.md#4-an-explicit-three-emitter-qubit) in order, first on emitters 2 and 3 at `arccos(1/sqrt(3))`, then on emitters 1 and 2 at `π/4`.
+2. **Hold and read the flag.** During the hold, leave the cells untouched under the specified homogeneous local damping. At the endpoint, reverse the inner gates and measure emitter 2 in the computational basis. Zero leaves the surviving qubit on emitter 1. One flags vacuum loss. Keep the flags and discard emitters 2 and 3.
+3. **Correct and return the payload.** Fill flagged positions with maximally mixed qubits, measure the outer stabilizer syndromes and solve the binary linear equations for a Pauli supported on the flagged positions. Apply the correction and invert the outer Clifford encoder. Correctable patterns return the unknown state with its reference correlations. Count uncorrectable patterns as failures in the fidelity accounting.
+
+With 90% local excitation survival, 0.2 logical qubits per physical emitter is achievable by the [sampled-code construction](science/implementation.md#5-efficient-final-only-stabilizer-recovery). The [resource account](science/implementation.md#resource-summary) counts all three emitters per cell, endpoint gates and synthesis, final flags, syndrome readout and classical work. The construction assumes controlled endpoint windows. Profile miscalibration and dephasing can cause unflagged errors outside this decoder's guarantee.
+
 ## A finite robustness example
 
 Encode each challenge qubit in the vacuum and nominal dark state of two emitters. Store it without intervention, then retrieve it in the basis revealed after storage. The following simultaneous budgets give a worst-case average bit-error bound of **8.15%**:
